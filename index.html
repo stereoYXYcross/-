@@ -1,0 +1,909 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>易經 · справочник гексаграмм</title>
+<style>
+:root{--bg:#eef0f4;--glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.65);--text:#1a1a1e;--muted:#5d5d63;--line:rgba(0,0,0,.08);--radius:22px;--blur:28px}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0a0c;--glass:rgba(30,30,34,.55);--glass-border:rgba(255,255,255,.12);--text:#f2f2f5;--muted:#9a9aa2;--line:rgba(255,255,255,.10)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;font-weight:300;letter-spacing:-.01em;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:float 18s ease-in-out infinite alternate}
+.b1{width:520px;height:520px;background:radial-gradient(circle,rgba(255,255,255,.9),transparent 70%);top:-120px;left:-100px}
+.b2{width:420px;height:420px;background:radial-gradient(circle,rgba(180,190,210,.55),transparent 70%);bottom:-100px;right:-80px;animation-delay:-6s}
+.b3{width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);top:40%;left:55%;animation-delay:-12s}
+@keyframes float{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,-30px) scale(1.08)}}
+header{position:sticky;top:0;z-index:10;backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);background:var(--glass);border-bottom:1px solid var(--glass-border)}
+.bar{max-width:1120px;margin:0 auto;padding:14px 20px}
+.brand{font-weight:400;letter-spacing:-.02em}
+main{max-width:1120px;margin:0 auto;padding:32px 20px 60px}
+h1{font-size:32px;font-weight:300;letter-spacing:-.03em;margin:0 0 6px}
+.sub{color:var(--muted);font-size:14px;margin:0}
+.tabs{display:flex;justify-content:flex-end;margin:18px 0 14px}
+.tab{border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(18px);color:var(--text);border-radius:999px;padding:9px 18px;font:inherit;font-weight:400;cursor:pointer;transition:.25s}
+.tab.active{background:var(--text);color:var(--bg);border-color:transparent}
+section{display:none}section.active{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:18px;backdrop-filter:blur(var(--blur)) saturate(180%);-webkit-backdrop-filter:blur(var(--blur)) saturate(180%);box-shadow:0 8px 32px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;cursor:pointer}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.10)}
+.card-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.card h2{font-size:18px;font-weight:400;margin:0;letter-spacing:-.02em}
+.sub2{margin:3px 0 0;color:var(--muted);font-size:12.5px}
+.num{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.glyph{font-size:28px;line-height:1}.glyph.big{font-size:56px}
+.meta,.judgment,.logic{margin:10px 0 0;font-size:13.5px}
+.logic{color:var(--muted)}
+.table-wrap{overflow:auto;border:1px solid var(--glass-border);border-radius:var(--radius);background:var(--glass);backdrop-filter:blur(var(--blur));box-shadow:0 8px 32px rgba(0,0,0,.06)}
+table{border-collapse:collapse;width:100%;min-width:1100px;font-size:13px}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500;position:static}
+tbody tr:hover{background:rgba(127,127,127,.06)}
+.detail{display:none;max-width:760px;margin:0 auto;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px;backdrop-filter:blur(var(--blur)) saturate(180%);box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.detail.open{display:block;animation:fade .4s ease}
+.back{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:8px 16px;font:inherit;font-weight:400;cursor:pointer;margin-bottom:18px;transition:.25s}
+.back:hover{background:rgba(127,127,127,.08)}
+.detail-head{display:flex;gap:16px;align-items:center;margin-bottom:14px}
+.detail h2{font-size:26px;font-weight:300;margin:0;letter-spacing:-.02em}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:28px 0;color:var(--muted);font-size:12.5px}
+</style></head><body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<header><div class="bar"><span class="brand">易經 · справочник гексаграмм</span></div></header>
+<main>
+<h1>六十四卦</h1>
+<p class="sub">六十四卦 · 六十四卦</p>
+<div class="tabs"><button class="tab active" data-view="cards">Карточки</button><button class="tab" data-view="table">Таблица</button></div>
+<section id="cards" class="active"><div class="grid"><article class="card" data-n="1" onclick="openDetail(1)">
+<div class="card-head"><span class="num">01</span><span class="glyph">䷀</span><div><h2>Творчество</h2><p class="sub2">乾 · qián · The Creative</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 111111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великая действенность благоприятствует стойкости.</p>
+<p class="logic"><strong>Логика смысла</strong>: Гексаграмма изображает чистую созидательную силу: небо непрерывно движется и потому порождает всё сущее. Сильному человеку следует действовать инициативно, но последовательно — не захватывая власть ради себя, а задавая направление, которому другие могут доверять. Успех здесь основан не на давлении, а на выдержке: творческий импульс сохраняет ценность лишь при внутренней дисциплине.</p></article>
+<article class="card" data-n="2" onclick="openDetail(2)">
+<div class="card-head"><span class="num">02</span><span class="glyph">䷁</span><div><h2>Исполнение</h2><p class="sub2">坤 · kūn · The Receptive</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Исполнение) · <strong>Верхняя триграмма</strong>: Кунь (Исполнение) · <strong>Двоичный код</strong>: 000000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость кобылицы.</p>
+<p class="logic"><strong>Логика смысла</strong>: Земля принимает, несёт и питает всё, не соперничая с небом. Сила этой гексаграммы — не в наступлении, а в умении поддерживать, завершать и давать развиться тому, что уже начато. Гибкость здесь не слабость: уступчивость становится могуществом, когда она соединена с ясной внутренней позицией.</p></article>
+<article class="card" data-n="3" onclick="openDetail(3)">
+<div class="card-head"><span class="num">03</span><span class="glyph">䷂</span><div><h2>Начальная трудность</h2><p class="sub2">屯 · zhūn · Difficulty at the Beginning</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 100010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятствует оказание помощи; не следует предпринимать поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Начало всегда хаотично: побеги пробиваются через почву, а намерение ещё не обрело формы. Не стоит немедленно расширять действие или требовать быстрого результата; сначала нужно найти опору, собрать силы и определить, кому можно доверить помощь. Трудность здесь — не препятствие к росту, а его необходимое условие.</p></article>
+<article class="card" data-n="4" onclick="openDetail(4)">
+<div class="card-head"><span class="num">04</span><span class="glyph">䷃</span><div><h2>Молодость</h2><p class="sub2">蒙 · méng · Youthful Folly</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 010001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Юному безумцу благоприятствует, если он сам обращается за наставлением.</p>
+<p class="logic"><strong>Логика смысла</strong>: Незнание не является недостатком, пока человек способен задавать вопросы и принимать урок. Наставник не должен вкладывать знание насильно: понимание возникает там, где ученик сам ищет ответ. Эта гексаграмма учит различать невежество, которое можно исправить, и упрямство, которое закрывает путь к обучению.</p></article>
+<article class="card" data-n="5" onclick="openDetail(5)">
+<div class="card-head"><span class="num">05</span><span class="glyph">䷄</span><div><h2>Ожидание</h2><p class="sub2">需 · xū · Waiting</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 111010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Обладающий правдой достигнет величия; благоприятен переход через большую воду.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация ещё не созрела, и преждевременное действие может разрушить то, что могло бы развиться само. Ожидание — не бездействие, а активная подготовка: укрепление позиции, накопление знания, наблюдение за обстоятельствами. Когда момент придёт, двигаться следует уверенно, но без суеты.</p></article>
+<article class="card" data-n="6" onclick="openDetail(6)">
+<div class="card-head"><span class="num">06</span><span class="glyph">䷅</span><div><h2>Тяжба</h2><p class="sub2">讼 · sòng · Conflict</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 010111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна встреча с великим человеком; не следует переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Столкновение интересов обнажает границу между тем, что можно доказать, и тем, что хочется навязать. Победа в споре нередко оказывается дороже примирения: она закрепляет разрыв и истощает обе стороны. Разумнее искать посредника, фиксировать справедливые условия и не превращать частное разногласие в затяжную борьбу.</p></article>
+<article class="card" data-n="7" onclick="openDetail(7)">
+<div class="card-head"><span class="num">07</span><span class="glyph">䷆</span><div><h2>Войско</h2><p class="sub2">師 · shī · The Army</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 010000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: От сильного человека зависит успех; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Любое масштабное дело требует не хаотичного энтузиазма, а порядка: ясной цели, распределения ролей и ответственного руководства. Сила группы возникает тогда, когда дисциплина не подавляет людей, а позволяет им действовать согласованно. Законность цели здесь важнее самой мощи: войско без правого основания разрушает то, что должно защищать.</p></article>
+<article class="card" data-n="8" onclick="openDetail(8)">
+<div class="card-head"><span class="num">08</span><span class="glyph">䷇</span><div><h2>Приближение</h2><p class="sub2">比 · bǐ · Holding Together</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 000010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно изыскать помощь и вновь укрепить стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сплочённость не создаётся приказом: люди объединяются вокруг того, кто способен дать ясность и безопасность. Взаимная поддержка сильнее формальной иерархии, но требует взаимности — нельзя только требовать верности, не предлагая её. Эта гексаграмма о союзе, в котором каждый сохраняет свою роль, но действует ради общего основания.</p></article>
+<article class="card" data-n="9" onclick="openDetail(9)">
+<div class="card-head"><span class="num">09</span><span class="glyph">䷈</span><div><h2>Малое накопление</h2><p class="sub2">小畜 · xiǎo chù · Small Taming</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 111011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен малый успех; великое движение ещё неуместно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сила уже есть, но её пока недостаточно для большого прорыва. Мягкое, постепенное сдерживание позволяет накопить ресурс и не растратить его на преждевременный рывок. Малые точные шаги здесь ценнее эффектного начала: они формируют привычку, доверие и устойчивую базу для будущего масштаба.</p></article>
+<article class="card" data-n="10" onclick="openDetail(10)">
+<div class="card-head"><span class="num">10</span><span class="glyph">䷉</span><div><h2>Поступь</h2><p class="sub2">履 · lǚ · Treading</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 110111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Наступать на хвост тигра: тот не укусит человека; будет успех.</p>
+<p class="logic"><strong>Логика смысла</strong>: Даже в опасной среде можно двигаться вперёд, если поведение точно и уважительно. Риск не отменяется смелостью — он преобразуется правильной формой действия. Эта гексаграмма учит различать дерзость и достоинство: уверенность допустима лишь тогда, когда она не нарушает границ других.</p></article>
+<article class="card" data-n="11" onclick="openDetail(11)">
+<div class="card-head"><span class="num">11</span><span class="glyph">䷊</span><div><h2>Расцвет</h2><p class="sub2">泰 · tài · Peace</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 111000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое уходит, великое приходит; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Когда высокое и низкое начинают взаимодействовать, энергия свободно циркулирует: идеи доходят до исполнения, а люди — до взаимопонимания. Это период роста, но не повод расслабиться: гармония держится на внимании к связям и готовности замечать ранние признаки разлада. Успех устойчив лишь у того, кто не принимает его как постоянную данность.</p></article>
+<article class="card" data-n="12" onclick="openDetail(12)">
+<div class="card-head"><span class="num">12</span><span class="glyph">䷋</span><div><h2>Упадок</h2><p class="sub2">否 · pǐ · Standstill</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 000111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великое уходит, малое приходит.</p>
+<p class="logic"><strong>Логика смысла</strong>: Связь между частями системы нарушена: наверху не слышат низ, а низ не доверяет верху. В такой ситуации форсирование лишь углубляет разрыв; важнее сохранить ресурсы, не участвовать в пустой активности и ждать изменения условий. Упадок учит терпению без капитуляции: нужно удерживать направление, даже когда результат временно недостижим.</p></article>
+<article class="card" data-n="13" onclick="openDetail(13)">
+<div class="card-head"><span class="num">13</span><span class="glyph">䷌</span><div><h2>Единомышленники</h2><p class="sub2">同人 · tóng rén · Fellowship</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 101111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен переход через большую реку; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Общая цель способна объединить разных людей, но лишь если она сформулирована ясно и честно. Сотрудничество разрушается, когда под видом общего дела скрываются частные интересы. Эта гексаграмма о сообществе, в котором различие позиций не мешает согласию относительно направления.</p></article>
+<article class="card" data-n="14" onclick="openDetail(14)">
+<div class="card-head"><span class="num">14</span><span class="glyph">䷍</span><div><h2>Великое обладание</h2><p class="sub2">大有 · dà yǒu · Great Possession</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 111101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Изобилие — не просто накопление ресурсов, а способность ими распоряжаться. Чем больше влияния и возможностей, тем выше ответственность перед теми, кто зависит от решения. Эта гексаграмма учит видеть в успехе не личную победу, а расширение поля действия и обязательств.</p></article>
+<article class="card" data-n="15" onclick="openDetail(15)">
+<div class="card-head"><span class="num">15</span><span class="glyph">䷎</span><div><h2>Смирение</h2><p class="sub2">谦 · qiān · Modesty</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 001000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно; смиренному человеку удастся завершить дело.</p>
+<p class="logic"><strong>Логика смысла</strong>: Скромность не означает умаления себя: это точное соответствие между реальным вкладом и его внешним выражением. Человек, не нуждающийся постоянно подчёркивать превосходство, сохраняет доверие и гибкость. Умеренность делает позицию прочной именно потому, что не провоцирует сопротивления и не отрывает человека от реальности.</p></article>
+<article class="card" data-n="16" onclick="openDetail(16)">
+<div class="card-head"><span class="num">16</span><span class="glyph">䷏</span><div><h2>Волнение</h2><p class="sub2">豫 · yù · Enthusiasm</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 000100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно назначать помощников и выступать в поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Воодушевление способно сдвинуть с места целую группу, но лишь при наличии структуры. Вдохновение без организации быстро рассеивается, а организация без воодушевления превращается в формальность. Сильный лидер не давит, а создаёт образ будущего, в котором другие видят смысл собственного участия.</p></article>
+<article class="card" data-n="17" onclick="openDetail(17)">
+<div class="card-head"><span class="num">17</span><span class="glyph">䷐</span><div><h2>Последование</h2><p class="sub2">隨 · suí · Following</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 100110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна стойкость; нет хулы.</p>
+<p class="logic"><strong>Логика смысла</strong>: Умение следовать — не отказ от собственной воли, а способность верно выбирать, чему и кому доверять. Адаптация к обстоятельствам становится силой, когда она не превращается в беспринципность. Эта гексаграмма учит различать гибкость и зависимость: первое расширяет возможности, второе их уничтожает.</p></article>
+<article class="card" data-n="18" onclick="openDetail(18)">
+<div class="card-head"><span class="num">18</span><span class="glyph">䷑</span><div><h2>Порча</h2><p class="sub2">蛊 · gǔ · Work on the Decayed</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 011001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно переходить великую воду; до начала — три дня, после начала — три дня.</p>
+<p class="logic"><strong>Логика смысла</strong>: Застарелая проблема редко исчезает от одного резкого решения: она вросла в привычки, отношения и порядок вещей. Прежде чем менять, нужно понять причину; после изменения — закрепить новый уклад. Эта гексаграмма о терпеливой работе с разложением: не разрушить всё сразу, а последовательно восстановить живое.</p></article>
+<article class="card" data-n="19" onclick="openDetail(19)">
+<div class="card-head"><span class="num">19</span><span class="glyph">䷒</span><div><h2>Посещение</h2><p class="sub2">临 · lín · Approach</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 110000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно; к восьмой луне наступит несчастье.</p>
+<p class="logic"><strong>Логика смысла</strong>: Приближение к людям и делам открывает окно возможностей, но оно ограничено во времени. Внимательное присутствие и готовность действовать сейчас важнее стратегических планов на неопределённое будущее. Успех здесь требует не только использования момента, но и понимания его границы.</p></article>
+<article class="card" data-n="20" onclick="openDetail(20)">
+<div class="card-head"><span class="num">20</span><span class="glyph">䷓</span><div><h2>Созерцание</h2><p class="sub2">观 · guān · Contemplation</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 000011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Умывшись, доверьтесь себе; юный безумец не в убытке.</p>
+<p class="logic"><strong>Логика смысла</strong>: Понимание начинается с дистанции: чтобы увидеть структуру ситуации, нужно подняться над её суетой. Наблюдение не пассивно — оно формирует суждение и позволяет не путать движение с развитием. Эта гексаграмма учит смотреть шире непосредственного интереса, прежде чем выбирать направление.</p></article>
+<article class="card" data-n="21" onclick="openDetail(21)">
+<div class="card-head"><span class="num">21</span><span class="glyph">䷔</span><div><h2>Стиснутые зубы</h2><p class="sub2">噬嗑 · shì kè · Biting Through</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 100101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно творить суд.</p>
+<p class="logic"><strong>Логика смысла</strong>: Препятствие между людьми нельзя игнорировать: оно гниёт и заражает всё вокруг. Разрешение требует ясности, решимости и справедливой меры — не мести, а восстановления порядка. Эта гексаграмма о необходимости действовать точно там, где мягкость уже стала соучастием в проблеме.</p></article>
+<article class="card" data-n="22" onclick="openDetail(22)">
+<div class="card-head"><span class="num">22</span><span class="glyph">䷕</span><div><h2>Украшение</h2><p class="sub2">贲 · bì · Grace</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 101001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно; благоприятен малый поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Форма делает содержание различимым, но не заменяет его. Уместное оформление — речи, интерфейса, жеста, ритуала — помогает смыслу быть понятым. Избыток украшения, напротив, скрывает пустоту; эта гексаграмма учит мере между выразительностью и сущностью.</p></article>
+<article class="card" data-n="23" onclick="openDetail(23)">
+<div class="card-head"><span class="num">23</span><span class="glyph">䷖</span><div><h2>Размыв</h2><p class="sub2">剥 · bō · Splitting Apart</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 000001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Неблагоприятно куда-либо выступать.</p>
+<p class="logic"><strong>Логика смысла</strong>: Разрушение устаревшего идёт своей логикой, и сопротивление ему лишь ускоряет потерю. Важно не спасать всё подряд, а различить: что действительно является основой, а что лишь привычной оболочкой. Эта гексаграмма учит сохранять ядро, отпуская то, что уже не держит формы.</p></article>
+<article class="card" data-n="24" onclick="openDetail(24)">
+<div class="card-head"><span class="num">24</span><span class="glyph">䷗</span><div><h2>Возврат</h2><p class="sub2">复 · fù · Return</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 100000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно выступать в поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: После спада появляется первая точка обновления — не как возврат к прежнему, а как восстановление правильного направления. Сила возвращения в его естественности: не нужно форсировать рост, достаточно не мешать ему. Эта гексаграмма о начале нового цикла, которое легко пропустить, если ждать слишком большого знака.</p></article>
+<article class="card" data-n="25" onclick="openDetail(25)">
+<div class="card-head"><span class="num">25</span><span class="glyph">䷘</span><div><h2>Невинность</h2><p class="sub2">无妄 · wú wàng · Innocence</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 100111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Действие наиболее сильно, когда оно не отягощено двойной мыслью и расчётом на эффект. Непредвиденное не обязательно враждебно: иногда оно лишь проверяет, насколько человек способен оставаться собой. Эта гексаграмма учит естественности без наивности — открытости миру при сохранении внутренней опоры.</p></article>
+<article class="card" data-n="26" onclick="openDetail(26)">
+<div class="card-head"><span class="num">26</span><span class="glyph">䷙</span><div><h2>Большое накопление</h2><p class="sub2">大畜 · dà chù · Great Taming</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 111001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Накопленные сила, опыт и ресурсы позволяют действовать масштабно, но именно масштаб требует сдержанности. Величие без меры превращается в самовольство и разрушает то, что должно было укреплять. Эта гексаграмма о способности удерживать большую мощность в правильной форме.</p></article>
+<article class="card" data-n="27" onclick="openDetail(27)">
+<div class="card-head"><span class="num">27</span><span class="glyph">䷚</span><div><h2>Питание</h2><p class="sub2">颐 · yí · Nourishment</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 100001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; следите за тем, чем питаетесь и что говорите.</p>
+<p class="logic"><strong>Логика смысла</strong>: То, чем человек питается телесно и умственно, напрямую формирует его состояние и способность действовать. Слова — тоже форма питания: они либо поддерживают, либо истощают общее поле. Эта гексаграмма учит осознанно выбирать источники силы и не путать наполнение с потреблением.</p></article>
+<article class="card" data-n="28" onclick="openDetail(28)">
+<div class="card-head"><span class="num">28</span><span class="glyph">䷛</span><div><h2>Большое превышение</h2><p class="sub2">大过 · dà guò · Great Preponderance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 011110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация перегружена: обычные меры уже не работают, и требуется нестандартное решение. Однако нестандартность не означает безрассудство — она должна быть точным ответом на реальную нагрузку. Эта гексаграмма о моменте, когда осторожность важнее эффектности.</p></article>
+<article class="card" data-n="29" onclick="openDetail(29)">
+<div class="card-head"><span class="num">29</span><span class="glyph">䷜</span><div><h2>Повторная опасность</h2><p class="sub2">坎 · kǎn · The Abysmal</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 010010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Обладающему правде следует действовать с внутренним успехом.</p>
+<p class="logic"><strong>Логика смысла</strong>: Опасность повторяется, и её нельзя обмануть поверхностной уверенностью. Сохраняйте прямоту, действуйте по существу и не создавайте новых рисков.</p></article>
+<article class="card" data-n="30" onclick="openDetail(30)">
+<div class="card-head"><span class="num">30</span><span class="glyph">䷝</span><div><h2>Сцепление</h2><p class="sub2">离 · lí · The Clinging</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 101101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; развитие; для коровы — благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ясность освещает, но свет нуждается в топливе. Успех зависит от опоры на надёжные связи, знание и меру.</p></article>
+<article class="card" data-n="31" onclick="openDetail(31)">
+<div class="card-head"><span class="num">31</span><span class="glyph">䷞</span><div><h2>Взаимодействие</h2><p class="sub2">咸 · xián · Influence</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 001110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость; благоприятно брать жену.</p>
+<p class="logic"><strong>Логика смысла</strong>: Взаимное притяжение открывает возможность союза. Оно становится прочным, когда отклик взаимен, а не является односторонним желанием.</p></article>
+<article class="card" data-n="32" onclick="openDetail(32)">
+<div class="card-head"><span class="num">32</span><span class="glyph">䷟</span><div><h2>Постоянство</h2><p class="sub2">恒 · héng · Duration</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 011100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; нет хулы; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Долгий результат создаётся повторением правильного действия. Постоянство — не неподвижность, а устойчивость направления при меняющихся обстоятельствах.</p></article>
+<article class="card" data-n="33" onclick="openDetail(33)">
+<div class="card-head"><span class="num">33</span><span class="glyph">䷠</span><div><h2>Отступление</h2><p class="sub2">遯 · dùn · Retreat</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 001111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; малому человеку благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Отступление — не поражение, а сохранение позиции. Уходите вовремя, не растрачивая силы в заведомо проигрышном столкновении.</p></article>
+<article class="card" data-n="34" onclick="openDetail(34)">
+<div class="card-head"><span class="num">34</span><span class="glyph">䷡</span><div><h2>Великая мощь</h2><p class="sub2">大壮 · dà zhuàng · Great Power</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 111100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сила велика, но именно поэтому опасна без меры. Действуйте уверенно, однако не превращайте преимущество в насилие.</p></article>
+<article class="card" data-n="35" onclick="openDetail(35)">
+<div class="card-head"><span class="num">35</span><span class="glyph">䷢</span><div><h2>Подъём</h2><p class="sub2">晋 · jìn · Progress</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 000101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великому человеку благоприятно довериться; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Продвижение становится устойчивым, когда оно замечено и поддержано. Ясно обозначайте результат, но не торопите признание.</p></article>
+<article class="card" data-n="36" onclick="openDetail(36)">
+<div class="card-head"><span class="num">36</span><span class="glyph">䷣</span><div><h2>Поражение света</h2><p class="sub2">明夷 · míng yí · Darkening of the Light</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 101000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость в затруднении.</p>
+<p class="logic"><strong>Логика смысла</strong>: Свет скрыт, но не уничтожен. В неблагоприятных условиях важнее сохранить суть и не раскрывать себя без необходимости.</p></article>
+<article class="card" data-n="37" onclick="openDetail(37)">
+<div class="card-head"><span class="num">37</span><span class="glyph">䷤</span><div><h2>Домашние</h2><p class="sub2">家人 · jiā rén · The Family</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 101011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость женщины.</p>
+<p class="logic"><strong>Логика смысла</strong>: Порядок начинается с ясных ролей и взаимной ответственности. Влияние строится изнутри: сначала упорядочивается близкое, затем — внешнее.</p></article>
+<article class="card" data-n="38" onclick="openDetail(38)">
+<div class="card-head"><span class="num">38</span><span class="glyph">䷥</span><div><h2>Разлад</h2><p class="sub2">睽 · kuí · Opposition</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 110101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малые дела возможны.</p>
+<p class="logic"><strong>Логика смысла</strong>: Различия не обязательно делают сотрудничество невозможным. В малом можно найти общую основу, но не стоит требовать полного совпадения.</p></article>
+<article class="card" data-n="39" onclick="openDetail(39)">
+<div class="card-head"><span class="num">39</span><span class="glyph">䷦</span><div><h2>Препятствие</h2><p class="sub2">蹇 · jiǎn · Obstruction</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 001010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно на юго-запад; не благоприятно на северо-восток.</p>
+<p class="logic"><strong>Логика смысла</strong>: Путь затруднён, и прямое продвижение невыгодно. Ищите обходной путь, надёжного помощника и более подходящее направление.</p></article>
+<article class="card" data-n="40" onclick="openDetail(40)">
+<div class="card-head"><span class="num">40</span><span class="glyph">䷧</span><div><h2>Разрешение</h2><p class="sub2">解 · jiě · Deliverance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 010100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно на юго-запад.</p>
+<p class="logic"><strong>Логика смысла</strong>: Напряжение начинает разрешаться. Не закрепляйте старый конфликт: после снятия препятствия важно быстро вернуться к нормальному порядку.</p></article>
+<article class="card" data-n="41" onclick="openDetail(41)">
+<div class="card-head"><span class="num">41</span><span class="glyph">䷨</span><div><h2>Убыль</h2><p class="sub2">损 · sǔn · Decrease</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 110001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сокращение может быть созидательным, если оно освобождает от лишнего. Уступка и ограничение сейчас служат большему результату.</p></article>
+<article class="card" data-n="42" onclick="openDetail(42)">
+<div class="card-head"><span class="num">42</span><span class="glyph">䷩</span><div><h2>Прибыль</h2><p class="sub2">益 · yì · Increase</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 100011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; благоприятен переход через великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ресурсы прирастают, и их стоит направить в движение. Щедрость и поддержка других усиливают общее развитие.</p></article>
+<article class="card" data-n="43" onclick="openDetail(43)">
+<div class="card-head"><span class="num">43</span><span class="glyph">䷪</span><div><h2>Выход</h2><p class="sub2">夬 · guài · Breakthrough</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 111110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна решимость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Препятствие требует ясного и решительного устранения. Но решимость не должна становиться жестокостью: объясните причину и сохраните порядок.</p></article>
+<article class="card" data-n="44" onclick="openDetail(44)">
+<div class="card-head"><span class="num">44</span><span class="glyph">䷫</span><div><h2>Встреча</h2><p class="sub2">姤 · gòu · Coming to Meet</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 011111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Велика встреча; не благоприятно брать жену.</p>
+<p class="logic"><strong>Логика смысла</strong>: Неожиданная сила входит в ситуацию. Не отвергайте её автоматически, но не позволяйте случайному влиянию определить направление.</p></article>
+<article class="card" data-n="45" onclick="openDetail(45)">
+<div class="card-head"><span class="num">45</span><span class="glyph">䷬</span><div><h2>Собрание</h2><p class="sub2">萃 · cuì · Gathering Together</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 000110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно явиться к великому человеку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Люди собираются вокруг ясного центра. Объединение даёт силу, если оно основано на доверии, а не только на выгоде.</p></article>
+<article class="card" data-n="46" onclick="openDetail(46)">
+<div class="card-head"><span class="num">46</span><span class="glyph">䷭</span><div><h2>Восхождение</h2><p class="sub2">升 · shēng · Pushing Upward</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 011000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна встреча с великим человеком.</p>
+<p class="logic"><strong>Логика смысла</strong>: Рост идёт постепенно и опирается на накопленное. Поднимайтесь по ясным ступеням, а не пытайтесь перепрыгнуть необходимый этап.</p></article>
+<article class="card" data-n="47" onclick="openDetail(47)">
+<div class="card-head"><span class="num">47</span><span class="glyph">䷮</span><div><h2>Истощение</h2><p class="sub2">困 · kùn · Oppression</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 010110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; для великого человека благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ограничение обнажает подлинную опору человека. Не добивайтесь внешнего успеха любой ценой: сохраните достоинство и выдержку.</p></article>
+<article class="card" data-n="48" onclick="openDetail(48)">
+<div class="card-head"><span class="num">48</span><span class="glyph">䷯</span><div><h2>Колодец</h2><p class="sub2">井 · jǐng · The Well</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 010011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Можно менять город, нельзя менять колодец.</p>
+<p class="logic"><strong>Логика смысла</strong>: Надёжный источник не зависит от внешней суеты. Сохраняйте и обновляйте основу, из которой вы и другие можете черпать силу.</p></article>
+<article class="card" data-n="49" onclick="openDetail(49)">
+<div class="card-head"><span class="num">49</span><span class="glyph">䷰</span><div><h2>Потенция</h2><p class="sub2">革 · gé · Revolution</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 101110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: В день завершения — вера; развитие; благоприятна стойкость; хулы не будет.</p>
+<p class="logic"><strong>Логика смысла</strong>: Существующий порядок исчерпал себя. Преобразование оправдано, когда оно подготовлено, понятно людям и ведёт к более справедливому устройству.</p></article>
+<article class="card" data-n="50" onclick="openDetail(50)">
+<div class="card-head"><span class="num">50</span><span class="glyph">䷱</span><div><h2>Жертвенник</h2><p class="sub2">鼎 · dǐng · The Caldron</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 011101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сырьё превращается в нечто пригодное для общего пользования. Создайте условия, в которых разрозненные элементы станут целостной силой.</p></article>
+<article class="card" data-n="51" onclick="openDetail(51)">
+<div class="card-head"><span class="num">51</span><span class="glyph">䷲</span><div><h2>Молния</h2><p class="sub2">震 · zhèn · The Arousing</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 100100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; молния приходит без суеты.</p>
+<p class="logic"><strong>Логика смысла</strong>: Внезапное событие мобилизует. Не паникуйте и не цепенейте: сохраните центр, извлеките урок и действуйте после первой реакции.</p></article>
+<article class="card" data-n="52" onclick="openDetail(52)">
+<div class="card-head"><span class="num">52</span><span class="glyph">䷳</span><div><h2>Сосредоточенность</h2><p class="sub2">艮 · gèn · Keeping Still</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 001001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Не следует выступать; благоприятно остановиться.</p>
+<p class="logic"><strong>Логика смысла</strong>: Есть момент, когда действие только усиливает путаницу. Остановитесь в правильном месте: граница сама становится формой ясности.</p></article>
+<article class="card" data-n="53" onclick="openDetail(53)">
+<div class="card-head"><span class="num">53</span><span class="glyph">䷴</span><div><h2>Течение</h2><p class="sub2">渐 · jiàn · Development</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 001011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; благоприятна невесте.</p>
+<p class="logic"><strong>Логика смысла</strong>: Развитие требует порядка и постепенности. Не пропускайте этапы: прочный результат вырастает из последовательных шагов.</p></article>
+<article class="card" data-n="54" onclick="openDetail(54)">
+<div class="card-head"><span class="num">54</span><span class="glyph">䷵</span><div><h2>Выходящая дева</h2><p class="sub2">归妹 · guī mèi · The Marrying Maiden</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 110100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Для того, кто выступает, — несчастье; ничего не благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация требует занять верное место в заданной структуре. Попытка действовать из ложной позиции ведёт к осложнениям.</p></article>
+<article class="card" data-n="55" onclick="openDetail(55)">
+<div class="card-head"><span class="num">55</span><span class="glyph">䷶</span><div><h2>Изобилие</h2><p class="sub2">丰 · fēng · Abundance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 101100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно быть правителем.</p>
+<p class="logic"><strong>Логика смысла</strong>: Пик полноты и ясности достигнут. Пользуйтесь моментом решительно, но помните: за расцветом неизбежно следует перемена.</p></article>
+<article class="card" data-n="56" onclick="openDetail(56)">
+<div class="card-head"><span class="num">56</span><span class="glyph">䷷</span><div><h2>Странствие</h2><p class="sub2">旅 · lǚ · The Wanderer</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 001101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое развитие; странствующему человеку благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Вы вне привычной опоры. Не стремитесь немедленно утвердиться: адаптируйтесь, соблюдайте меру и не создавайте лишних обязательств.</p></article>
+<article class="card" data-n="57" onclick="openDetail(57)">
+<div class="card-head"><span class="num">57</span><span class="glyph">䷸</span><div><h2>Проникновение</h2><p class="sub2">巽 · xùn · The Gentle</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 011011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое развитие; благоприятно иметь куда выступить; благоприятно явиться к великому человеку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Мягкое, повторяющееся воздействие проникает там, где давление встречает сопротивление. Выбирайте точность и постепенность.</p></article>
+<article class="card" data-n="58" onclick="openDetail(58)">
+<div class="card-head"><span class="num">58</span><span class="glyph">䷹</span><div><h2>Радость</h2><p class="sub2">兑 · duì · The Joyous</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 110110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Открытый обмен и ясная речь создают доверие. Радость становится силой, когда она не подменяет дело пустым удовольствием.</p></article>
+<article class="card" data-n="59" onclick="openDetail(59)">
+<div class="card-head"><span class="num">59</span><span class="glyph">䷺</span><div><h2>Раздробление</h2><p class="sub2">涣 · huàn · Dispersion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 010011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Разобщённость рассеивается, если найти общий образ и общую задачу. После разрыва важно заново собрать людей вокруг смысла.</p></article>
+<article class="card" data-n="60" onclick="openDetail(60)">
+<div class="card-head"><span class="num">60</span><span class="glyph">䷻</span><div><h2>Ограничение</h2><p class="sub2">节 · jié · Limitation</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 110010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; не следует быть стойким в ограничении.</p>
+<p class="logic"><strong>Логика смысла</strong>: Мера не сковывает, а делает возможным длительное движение. Установите границы до того, как избыток разрушит результат.</p></article>
+<article class="card" data-n="61" onclick="openDetail(61)">
+<div class="card-head"><span class="num">61</span><span class="glyph">䷼</span><div><h2>Внутренняя правда</h2><p class="sub2">中孚 · zhōng fú · Inner Truth</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 110011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен переход через большую реку; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Искренность создаёт связь там, где формальные аргументы бессильны. Внутренняя согласованность слова и действия — основа доверия.</p></article>
+<article class="card" data-n="62" onclick="openDetail(62)">
+<div class="card-head"><span class="num">62</span><span class="glyph">䷽</span><div><h2>Малое превышение</h2><p class="sub2">小过 · xiǎo guò · Small Preponderance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 001100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость; малые дела возможны.</p>
+<p class="logic"><strong>Логика смысла</strong>: Масштаб ситуации невелик, и большие жесты будут неуместны. Действуйте аккуратно, уделяя внимание деталям и реальным возможностям.</p></article>
+<article class="card" data-n="63" onclick="openDetail(63)">
+<div class="card-head"><span class="num">63</span><span class="glyph">䷾</span><div><h2>Уже конец</h2><p class="sub2">既济 · jì jì · After Completion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 101010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие в малом; благоприятна стойкость; в конце — расстройство.</p>
+<p class="logic"><strong>Логика смысла</strong>: Дело завершено, но успех создаёт риск самоуспокоенности. Закрепите результат и продолжайте следить за деталями.</p></article>
+<article class="card" data-n="64" onclick="openDetail(64)">
+<div class="card-head"><span class="num">64</span><span class="glyph">䷿</span><div><h2>Ещё не конец</h2><p class="sub2">未济 · wèi jì · Before Completion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 010101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; для молодого лиса близок успех.</p>
+<p class="logic"><strong>Логика смысла</strong>: Финал близок, но ещё не достигнут. Последний этап требует особой точности: не путайте почти завершённое дело с завершённым.</p></article></div></section>
+<section id="table"><div class="table-wrap"><table><thead><tr><th>№</th><th>卦</th><th>Название</th><th>English</th><th>Триграммы</th><th>Суть афоризма</th><th>Логика смысла</th></tr></thead><tbody id="tbody"><tr data-search="Творчество The Creative 乾 qián Великая действенность благоприятствует стойкости. Гексаграмма изображает чистую созидательную силу: небо непрерывно движется и потому порождает всё сущее. Сильному человеку следует действовать инициативно, но последовательно — не захватывая власть ради себя, а задавая направление, которому другие могут доверять. Успех здесь основан не на давлении, а на выдержке: творческий импульс сохраняет ценность лишь при внутренней дисциплине.">
+<td>1</td><td class="glyph">䷀</td><td><strong>Творчество</strong><br><span class="muted">乾 · qián</span></td><td>The Creative</td><td>Цянь (Творчество) / Цянь (Творчество)</td><td>Великая действенность благоприятствует стойкости.</td><td>Гексаграмма изображает чистую созидательную силу: небо непрерывно движется и потому порождает всё сущее. Сильному человеку следует действовать инициативно, но последовательно — не захватывая власть ради себя, а задавая направление, которому другие могут доверять. Успех здесь основан не на давлении, а на выдержке: творческий импульс сохраняет ценность лишь при внутренней дисциплине.</td></tr>
+<tr data-search="Исполнение The Receptive 坤 kūn Благоприятна стойкость кобылицы. Земля принимает, несёт и питает всё, не соперничая с небом. Сила этой гексаграммы — не в наступлении, а в умении поддерживать, завершать и давать развиться тому, что уже начато. Гибкость здесь не слабость: уступчивость становится могуществом, когда она соединена с ясной внутренней позицией.">
+<td>2</td><td class="glyph">䷁</td><td><strong>Исполнение</strong><br><span class="muted">坤 · kūn</span></td><td>The Receptive</td><td>Кунь (Исполнение) / Кунь (Исполнение)</td><td>Благоприятна стойкость кобылицы.</td><td>Земля принимает, несёт и питает всё, не соперничая с небом. Сила этой гексаграммы — не в наступлении, а в умении поддерживать, завершать и давать развиться тому, что уже начато. Гибкость здесь не слабость: уступчивость становится могуществом, когда она соединена с ясной внутренней позицией.</td></tr>
+<tr data-search="Начальная трудность Difficulty at the Beginning 屯 zhūn Благоприятствует оказание помощи; не следует предпринимать поход. Начало всегда хаотично: побеги пробиваются через почву, а намерение ещё не обрело формы. Не стоит немедленно расширять действие или требовать быстрого результата; сначала нужно найти опору, собрать силы и определить, кому можно доверить помощь. Трудность здесь — не препятствие к росту, а его необходимое условие.">
+<td>3</td><td class="glyph">䷂</td><td><strong>Начальная трудность</strong><br><span class="muted">屯 · zhūn</span></td><td>Difficulty at the Beginning</td><td>Чжэнь (Гром) / Кань (Вода)</td><td>Благоприятствует оказание помощи; не следует предпринимать поход.</td><td>Начало всегда хаотично: побеги пробиваются через почву, а намерение ещё не обрело формы. Не стоит немедленно расширять действие или требовать быстрого результата; сначала нужно найти опору, собрать силы и определить, кому можно доверить помощь. Трудность здесь — не препятствие к росту, а его необходимое условие.</td></tr>
+<tr data-search="Молодость Youthful Folly 蒙 méng Юному безумцу благоприятствует, если он сам обращается за наставлением. Незнание не является недостатком, пока человек способен задавать вопросы и принимать урок. Наставник не должен вкладывать знание насильно: понимание возникает там, где ученик сам ищет ответ. Эта гексаграмма учит различать невежество, которое можно исправить, и упрямство, которое закрывает путь к обучению.">
+<td>4</td><td class="glyph">䷃</td><td><strong>Молодость</strong><br><span class="muted">蒙 · méng</span></td><td>Youthful Folly</td><td>Кань (Вода) / Гэнь (Гора)</td><td>Юному безумцу благоприятствует, если он сам обращается за наставлением.</td><td>Незнание не является недостатком, пока человек способен задавать вопросы и принимать урок. Наставник не должен вкладывать знание насильно: понимание возникает там, где ученик сам ищет ответ. Эта гексаграмма учит различать невежество, которое можно исправить, и упрямство, которое закрывает путь к обучению.</td></tr>
+<tr data-search="Ожидание Waiting 需 xū Обладающий правдой достигнет величия; благоприятен переход через большую воду. Ситуация ещё не созрела, и преждевременное действие может разрушить то, что могло бы развиться само. Ожидание — не бездействие, а активная подготовка: укрепление позиции, накопление знания, наблюдение за обстоятельствами. Когда момент придёт, двигаться следует уверенно, но без суеты.">
+<td>5</td><td class="glyph">䷄</td><td><strong>Ожидание</strong><br><span class="muted">需 · xū</span></td><td>Waiting</td><td>Цянь (Творчество) / Кань (Вода)</td><td>Обладающий правдой достигнет величия; благоприятен переход через большую воду.</td><td>Ситуация ещё не созрела, и преждевременное действие может разрушить то, что могло бы развиться само. Ожидание — не бездействие, а активная подготовка: укрепление позиции, накопление знания, наблюдение за обстоятельствами. Когда момент придёт, двигаться следует уверенно, но без суеты.</td></tr>
+<tr data-search="Тяжба Conflict 讼 sòng Благоприятна встреча с великим человеком; не следует переходить великую реку. Столкновение интересов обнажает границу между тем, что можно доказать, и тем, что хочется навязать. Победа в споре нередко оказывается дороже примирения: она закрепляет разрыв и истощает обе стороны. Разумнее искать посредника, фиксировать справедливые условия и не превращать частное разногласие в затяжную борьбу.">
+<td>6</td><td class="glyph">䷅</td><td><strong>Тяжба</strong><br><span class="muted">讼 · sòng</span></td><td>Conflict</td><td>Кань (Вода) / Цянь (Творчество)</td><td>Благоприятна встреча с великим человеком; не следует переходить великую реку.</td><td>Столкновение интересов обнажает границу между тем, что можно доказать, и тем, что хочется навязать. Победа в споре нередко оказывается дороже примирения: она закрепляет разрыв и истощает обе стороны. Разумнее искать посредника, фиксировать справедливые условия и не превращать частное разногласие в затяжную борьбу.</td></tr>
+<tr data-search="Войско The Army 師 shī От сильного человека зависит успех; благоприятна стойкость. Любое масштабное дело требует не хаотичного энтузиазма, а порядка: ясной цели, распределения ролей и ответственного руководства. Сила группы возникает тогда, когда дисциплина не подавляет людей, а позволяет им действовать согласованно. Законность цели здесь важнее самой мощи: войско без правого основания разрушает то, что должно защищать.">
+<td>7</td><td class="glyph">䷆</td><td><strong>Войско</strong><br><span class="muted">師 · shī</span></td><td>The Army</td><td>Кань (Вода) / Кунь (Земля)</td><td>От сильного человека зависит успех; благоприятна стойкость.</td><td>Любое масштабное дело требует не хаотичного энтузиазма, а порядка: ясной цели, распределения ролей и ответственного руководства. Сила группы возникает тогда, когда дисциплина не подавляет людей, а позволяет им действовать согласованно. Законность цели здесь важнее самой мощи: войско без правого основания разрушает то, что должно защищать.</td></tr>
+<tr data-search="Приближение Holding Together 比 bǐ Благоприятно изыскать помощь и вновь укрепить стойкость. Сплочённость не создаётся приказом: люди объединяются вокруг того, кто способен дать ясность и безопасность. Взаимная поддержка сильнее формальной иерархии, но требует взаимности — нельзя только требовать верности, не предлагая её. Эта гексаграмма о союзе, в котором каждый сохраняет свою роль, но действует ради общего основания.">
+<td>8</td><td class="glyph">䷇</td><td><strong>Приближение</strong><br><span class="muted">比 · bǐ</span></td><td>Holding Together</td><td>Кунь (Земля) / Кань (Вода)</td><td>Благоприятно изыскать помощь и вновь укрепить стойкость.</td><td>Сплочённость не создаётся приказом: люди объединяются вокруг того, кто способен дать ясность и безопасность. Взаимная поддержка сильнее формальной иерархии, но требует взаимности — нельзя только требовать верности, не предлагая её. Эта гексаграмма о союзе, в котором каждый сохраняет свою роль, но действует ради общего основания.</td></tr>
+<tr data-search="Малое накопление Small Taming 小畜 xiǎo chù Благоприятен малый успех; великое движение ещё неуместно. Сила уже есть, но её пока недостаточно для большого прорыва. Мягкое, постепенное сдерживание позволяет накопить ресурс и не растратить его на преждевременный рывок. Малые точные шаги здесь ценнее эффектного начала: они формируют привычку, доверие и устойчивую базу для будущего масштаба.">
+<td>9</td><td class="glyph">䷈</td><td><strong>Малое накопление</strong><br><span class="muted">小畜 · xiǎo chù</span></td><td>Small Taming</td><td>Цянь (Творчество) / Сунь (Ветер)</td><td>Благоприятен малый успех; великое движение ещё неуместно.</td><td>Сила уже есть, но её пока недостаточно для большого прорыва. Мягкое, постепенное сдерживание позволяет накопить ресурс и не растратить его на преждевременный рывок. Малые точные шаги здесь ценнее эффектного начала: они формируют привычку, доверие и устойчивую базу для будущего масштаба.</td></tr>
+<tr data-search="Поступь Treading 履 lǚ Наступать на хвост тигра: тот не укусит человека; будет успех. Даже в опасной среде можно двигаться вперёд, если поведение точно и уважительно. Риск не отменяется смелостью — он преобразуется правильной формой действия. Эта гексаграмма учит различать дерзость и достоинство: уверенность допустима лишь тогда, когда она не нарушает границ других.">
+<td>10</td><td class="glyph">䷉</td><td><strong>Поступь</strong><br><span class="muted">履 · lǚ</span></td><td>Treading</td><td>Дуй (Радость) / Цянь (Творчество)</td><td>Наступать на хвост тигра: тот не укусит человека; будет успех.</td><td>Даже в опасной среде можно двигаться вперёд, если поведение точно и уважительно. Риск не отменяется смелостью — он преобразуется правильной формой действия. Эта гексаграмма учит различать дерзость и достоинство: уверенность допустима лишь тогда, когда она не нарушает границ других.</td></tr>
+<tr data-search="Расцвет Peace 泰 tài Малое уходит, великое приходит; благоприятно. Когда высокое и низкое начинают взаимодействовать, энергия свободно циркулирует: идеи доходят до исполнения, а люди — до взаимопонимания. Это период роста, но не повод расслабиться: гармония держится на внимании к связям и готовности замечать ранние признаки разлада. Успех устойчив лишь у того, кто не принимает его как постоянную данность.">
+<td>11</td><td class="glyph">䷊</td><td><strong>Расцвет</strong><br><span class="muted">泰 · tài</span></td><td>Peace</td><td>Цянь (Творчество) / Кунь (Земля)</td><td>Малое уходит, великое приходит; благоприятно.</td><td>Когда высокое и низкое начинают взаимодействовать, энергия свободно циркулирует: идеи доходят до исполнения, а люди — до взаимопонимания. Это период роста, но не повод расслабиться: гармония держится на внимании к связям и готовности замечать ранние признаки разлада. Успех устойчив лишь у того, кто не принимает его как постоянную данность.</td></tr>
+<tr data-search="Упадок Standstill 否 pǐ Великое уходит, малое приходит. Связь между частями системы нарушена: наверху не слышат низ, а низ не доверяет верху. В такой ситуации форсирование лишь углубляет разрыв; важнее сохранить ресурсы, не участвовать в пустой активности и ждать изменения условий. Упадок учит терпению без капитуляции: нужно удерживать направление, даже когда результат временно недостижим.">
+<td>12</td><td class="glyph">䷋</td><td><strong>Упадок</strong><br><span class="muted">否 · pǐ</span></td><td>Standstill</td><td>Кунь (Земля) / Цянь (Творчество)</td><td>Великое уходит, малое приходит.</td><td>Связь между частями системы нарушена: наверху не слышат низ, а низ не доверяет верху. В такой ситуации форсирование лишь углубляет разрыв; важнее сохранить ресурсы, не участвовать в пустой активности и ждать изменения условий. Упадок учит терпению без капитуляции: нужно удерживать направление, даже когда результат временно недостижим.</td></tr>
+<tr data-search="Единомышленники Fellowship 同人 tóng rén Благоприятен переход через большую реку; благоприятна стойкость. Общая цель способна объединить разных людей, но лишь если она сформулирована ясно и честно. Сотрудничество разрушается, когда под видом общего дела скрываются частные интересы. Эта гексаграмма о сообществе, в котором различие позиций не мешает согласию относительно направления.">
+<td>13</td><td class="glyph">䷌</td><td><strong>Единомышленники</strong><br><span class="muted">同人 · tóng rén</span></td><td>Fellowship</td><td>Ли (Сцепление) / Цянь (Творчество)</td><td>Благоприятен переход через большую реку; благоприятна стойкость.</td><td>Общая цель способна объединить разных людей, но лишь если она сформулирована ясно и честно. Сотрудничество разрушается, когда под видом общего дела скрываются частные интересы. Эта гексаграмма о сообществе, в котором различие позиций не мешает согласию относительно направления.</td></tr>
+<tr data-search="Великое обладание Great Possession 大有 dà yǒu Изначальное развитие; благоприятно. Изобилие — не просто накопление ресурсов, а способность ими распоряжаться. Чем больше влияния и возможностей, тем выше ответственность перед теми, кто зависит от решения. Эта гексаграмма учит видеть в успехе не личную победу, а расширение поля действия и обязательств.">
+<td>14</td><td class="glyph">䷍</td><td><strong>Великое обладание</strong><br><span class="muted">大有 · dà yǒu</span></td><td>Great Possession</td><td>Цянь (Творчество) / Ли (Сцепление)</td><td>Изначальное развитие; благоприятно.</td><td>Изобилие — не просто накопление ресурсов, а способность ими распоряжаться. Чем больше влияния и возможностей, тем выше ответственность перед теми, кто зависит от решения. Эта гексаграмма учит видеть в успехе не личную победу, а расширение поля действия и обязательств.</td></tr>
+<tr data-search="Смирение Modesty 谦 qiān Благоприятно; смиренному человеку удастся завершить дело. Скромность не означает умаления себя: это точное соответствие между реальным вкладом и его внешним выражением. Человек, не нуждающийся постоянно подчёркивать превосходство, сохраняет доверие и гибкость. Умеренность делает позицию прочной именно потому, что не провоцирует сопротивления и не отрывает человека от реальности.">
+<td>15</td><td class="glyph">䷎</td><td><strong>Смирение</strong><br><span class="muted">谦 · qiān</span></td><td>Modesty</td><td>Гэнь (Гора) / Кунь (Земля)</td><td>Благоприятно; смиренному человеку удастся завершить дело.</td><td>Скромность не означает умаления себя: это точное соответствие между реальным вкладом и его внешним выражением. Человек, не нуждающийся постоянно подчёркивать превосходство, сохраняет доверие и гибкость. Умеренность делает позицию прочной именно потому, что не провоцирует сопротивления и не отрывает человека от реальности.</td></tr>
+<tr data-search="Волнение Enthusiasm 豫 yù Благоприятно назначать помощников и выступать в поход. Воодушевление способно сдвинуть с места целую группу, но лишь при наличии структуры. Вдохновение без организации быстро рассеивается, а организация без воодушевления превращается в формальность. Сильный лидер не давит, а создаёт образ будущего, в котором другие видят смысл собственного участия.">
+<td>16</td><td class="glyph">䷏</td><td><strong>Волнение</strong><br><span class="muted">豫 · yù</span></td><td>Enthusiasm</td><td>Кунь (Земля) / Чжэнь (Гром)</td><td>Благоприятно назначать помощников и выступать в поход.</td><td>Воодушевление способно сдвинуть с места целую группу, но лишь при наличии структуры. Вдохновение без организации быстро рассеивается, а организация без воодушевления превращается в формальность. Сильный лидер не давит, а создаёт образ будущего, в котором другие видят смысл собственного участия.</td></tr>
+<tr data-search="Последование Following 隨 suí Изначальное развитие; благоприятна стойкость; нет хулы. Умение следовать — не отказ от собственной воли, а способность верно выбирать, чему и кому доверять. Адаптация к обстоятельствам становится силой, когда она не превращается в беспринципность. Эта гексаграмма учит различать гибкость и зависимость: первое расширяет возможности, второе их уничтожает.">
+<td>17</td><td class="glyph">䷐</td><td><strong>Последование</strong><br><span class="muted">隨 · suí</span></td><td>Following</td><td>Чжэнь (Гром) / Дуй (Радость)</td><td>Изначальное развитие; благоприятна стойкость; нет хулы.</td><td>Умение следовать — не отказ от собственной воли, а способность верно выбирать, чему и кому доверять. Адаптация к обстоятельствам становится силой, когда она не превращается в беспринципность. Эта гексаграмма учит различать гибкость и зависимость: первое расширяет возможности, второе их уничтожает.</td></tr>
+<tr data-search="Порча Work on the Decayed 蛊 gǔ Благоприятно переходить великую воду; до начала — три дня, после начала — три дня. Застарелая проблема редко исчезает от одного резкого решения: она вросла в привычки, отношения и порядок вещей. Прежде чем менять, нужно понять причину; после изменения — закрепить новый уклад. Эта гексаграмма о терпеливой работе с разложением: не разрушить всё сразу, а последовательно восстановить живое.">
+<td>18</td><td class="glyph">䷑</td><td><strong>Порча</strong><br><span class="muted">蛊 · gǔ</span></td><td>Work on the Decayed</td><td>Сунь (Ветер) / Гэнь (Гора)</td><td>Благоприятно переходить великую воду; до начала — три дня, после начала — три дня.</td><td>Застарелая проблема редко исчезает от одного резкого решения: она вросла в привычки, отношения и порядок вещей. Прежде чем менять, нужно понять причину; после изменения — закрепить новый уклад. Эта гексаграмма о терпеливой работе с разложением: не разрушить всё сразу, а последовательно восстановить живое.</td></tr>
+<tr data-search="Посещение Approach 临 lín Изначальное развитие; благоприятно; к восьмой луне наступит несчастье. Приближение к людям и делам открывает окно возможностей, но оно ограничено во времени. Внимательное присутствие и готовность действовать сейчас важнее стратегических планов на неопределённое будущее. Успех здесь требует не только использования момента, но и понимания его границы.">
+<td>19</td><td class="glyph">䷒</td><td><strong>Посещение</strong><br><span class="muted">临 · lín</span></td><td>Approach</td><td>Дуй (Радость) / Кунь (Земля)</td><td>Изначальное развитие; благоприятно; к восьмой луне наступит несчастье.</td><td>Приближение к людям и делам открывает окно возможностей, но оно ограничено во времени. Внимательное присутствие и готовность действовать сейчас важнее стратегических планов на неопределённое будущее. Успех здесь требует не только использования момента, но и понимания его границы.</td></tr>
+<tr data-search="Созерцание Contemplation 观 guān Умывшись, доверьтесь себе; юный безумец не в убытке. Понимание начинается с дистанции: чтобы увидеть структуру ситуации, нужно подняться над её суетой. Наблюдение не пассивно — оно формирует суждение и позволяет не путать движение с развитием. Эта гексаграмма учит смотреть шире непосредственного интереса, прежде чем выбирать направление.">
+<td>20</td><td class="glyph">䷓</td><td><strong>Созерцание</strong><br><span class="muted">观 · guān</span></td><td>Contemplation</td><td>Кунь (Земля) / Сунь (Ветер)</td><td>Умывшись, доверьтесь себе; юный безумец не в убытке.</td><td>Понимание начинается с дистанции: чтобы увидеть структуру ситуации, нужно подняться над её суетой. Наблюдение не пассивно — оно формирует суждение и позволяет не путать движение с развитием. Эта гексаграмма учит смотреть шире непосредственного интереса, прежде чем выбирать направление.</td></tr>
+<tr data-search="Стиснутые зубы Biting Through 噬嗑 shì kè Благоприятно творить суд. Препятствие между людьми нельзя игнорировать: оно гниёт и заражает всё вокруг. Разрешение требует ясности, решимости и справедливой меры — не мести, а восстановления порядка. Эта гексаграмма о необходимости действовать точно там, где мягкость уже стала соучастием в проблеме.">
+<td>21</td><td class="glyph">䷔</td><td><strong>Стиснутые зубы</strong><br><span class="muted">噬嗑 · shì kè</span></td><td>Biting Through</td><td>Чжэнь (Гром) / Ли (Сцепление)</td><td>Благоприятно творить суд.</td><td>Препятствие между людьми нельзя игнорировать: оно гниёт и заражает всё вокруг. Разрешение требует ясности, решимости и справедливой меры — не мести, а восстановления порядка. Эта гексаграмма о необходимости действовать точно там, где мягкость уже стала соучастием в проблеме.</td></tr>
+<tr data-search="Украшение Grace 贲 bì Благоприятно; благоприятен малый поход. Форма делает содержание различимым, но не заменяет его. Уместное оформление — речи, интерфейса, жеста, ритуала — помогает смыслу быть понятым. Избыток украшения, напротив, скрывает пустоту; эта гексаграмма учит мере между выразительностью и сущностью.">
+<td>22</td><td class="glyph">䷕</td><td><strong>Украшение</strong><br><span class="muted">贲 · bì</span></td><td>Grace</td><td>Ли (Сцепление) / Гэнь (Гора)</td><td>Благоприятно; благоприятен малый поход.</td><td>Форма делает содержание различимым, но не заменяет его. Уместное оформление — речи, интерфейса, жеста, ритуала — помогает смыслу быть понятым. Избыток украшения, напротив, скрывает пустоту; эта гексаграмма учит мере между выразительностью и сущностью.</td></tr>
+<tr data-search="Размыв Splitting Apart 剥 bō Неблагоприятно куда-либо выступать. Разрушение устаревшего идёт своей логикой, и сопротивление ему лишь ускоряет потерю. Важно не спасать всё подряд, а различить: что действительно является основой, а что лишь привычной оболочкой. Эта гексаграмма учит сохранять ядро, отпуская то, что уже не держит формы.">
+<td>23</td><td class="glyph">䷖</td><td><strong>Размыв</strong><br><span class="muted">剥 · bō</span></td><td>Splitting Apart</td><td>Кунь (Земля) / Гэнь (Гора)</td><td>Неблагоприятно куда-либо выступать.</td><td>Разрушение устаревшего идёт своей логикой, и сопротивление ему лишь ускоряет потерю. Важно не спасать всё подряд, а различить: что действительно является основой, а что лишь привычной оболочкой. Эта гексаграмма учит сохранять ядро, отпуская то, что уже не держит формы.</td></tr>
+<tr data-search="Возврат Return 复 fù Развитие; благоприятно выступать в поход. После спада появляется первая точка обновления — не как возврат к прежнему, а как восстановление правильного направления. Сила возвращения в его естественности: не нужно форсировать рост, достаточно не мешать ему. Эта гексаграмма о начале нового цикла, которое легко пропустить, если ждать слишком большого знака.">
+<td>24</td><td class="glyph">䷗</td><td><strong>Возврат</strong><br><span class="muted">复 · fù</span></td><td>Return</td><td>Чжэнь (Гром) / Кунь (Земля)</td><td>Развитие; благоприятно выступать в поход.</td><td>После спада появляется первая точка обновления — не как возврат к прежнему, а как восстановление правильного направления. Сила возвращения в его естественности: не нужно форсировать рост, достаточно не мешать ему. Эта гексаграмма о начале нового цикла, которое легко пропустить, если ждать слишком большого знака.</td></tr>
+<tr data-search="Невинность Innocence 无妄 wú wàng Изначальное развитие; благоприятна стойкость. Действие наиболее сильно, когда оно не отягощено двойной мыслью и расчётом на эффект. Непредвиденное не обязательно враждебно: иногда оно лишь проверяет, насколько человек способен оставаться собой. Эта гексаграмма учит естественности без наивности — открытости миру при сохранении внутренней опоры.">
+<td>25</td><td class="glyph">䷘</td><td><strong>Невинность</strong><br><span class="muted">无妄 · wú wàng</span></td><td>Innocence</td><td>Чжэнь (Гром) / Цянь (Творчество)</td><td>Изначальное развитие; благоприятна стойкость.</td><td>Действие наиболее сильно, когда оно не отягощено двойной мыслью и расчётом на эффект. Непредвиденное не обязательно враждебно: иногда оно лишь проверяет, насколько человек способен оставаться собой. Эта гексаграмма учит естественности без наивности — открытости миру при сохранении внутренней опоры.</td></tr>
+<tr data-search="Большое накопление Great Taming 大畜 dà chù Благоприятно переходить великую реку. Накопленные сила, опыт и ресурсы позволяют действовать масштабно, но именно масштаб требует сдержанности. Величие без меры превращается в самовольство и разрушает то, что должно было укреплять. Эта гексаграмма о способности удерживать большую мощность в правильной форме.">
+<td>26</td><td class="glyph">䷙</td><td><strong>Большое накопление</strong><br><span class="muted">大畜 · dà chù</span></td><td>Great Taming</td><td>Цянь (Творчество) / Гэнь (Гора)</td><td>Благоприятно переходить великую реку.</td><td>Накопленные сила, опыт и ресурсы позволяют действовать масштабно, но именно масштаб требует сдержанности. Величие без меры превращается в самовольство и разрушает то, что должно было укреплять. Эта гексаграмма о способности удерживать большую мощность в правильной форме.</td></tr>
+<tr data-search="Питание Nourishment 颐 yí Благоприятна стойкость; следите за тем, чем питаетесь и что говорите. То, чем человек питается телесно и умственно, напрямую формирует его состояние и способность действовать. Слова — тоже форма питания: они либо поддерживают, либо истощают общее поле. Эта гексаграмма учит осознанно выбирать источники силы и не путать наполнение с потреблением.">
+<td>27</td><td class="glyph">䷚</td><td><strong>Питание</strong><br><span class="muted">颐 · yí</span></td><td>Nourishment</td><td>Чжэнь (Гром) / Гэнь (Гора)</td><td>Благоприятна стойкость; следите за тем, чем питаетесь и что говорите.</td><td>То, чем человек питается телесно и умственно, напрямую формирует его состояние и способность действовать. Слова — тоже форма питания: они либо поддерживают, либо истощают общее поле. Эта гексаграмма учит осознанно выбирать источники силы и не путать наполнение с потреблением.</td></tr>
+<tr data-search="Большое превышение Great Preponderance 大过 dà guò Благоприятно иметь куда выступить; развитие. Ситуация перегружена: обычные меры уже не работают, и требуется нестандартное решение. Однако нестандартность не означает безрассудство — она должна быть точным ответом на реальную нагрузку. Эта гексаграмма о моменте, когда осторожность важнее эффектности.">
+<td>28</td><td class="glyph">䷛</td><td><strong>Большое превышение</strong><br><span class="muted">大过 · dà guò</span></td><td>Great Preponderance</td><td>Сунь (Ветер) / Дуй (Радость)</td><td>Благоприятно иметь куда выступить; развитие.</td><td>Ситуация перегружена: обычные меры уже не работают, и требуется нестандартное решение. Однако нестандартность не означает безрассудство — она должна быть точным ответом на реальную нагрузку. Эта гексаграмма о моменте, когда осторожность важнее эффектности.</td></tr>
+<tr data-search="Повторная опасность The Abysmal 坎 kǎn Обладающему правде следует действовать с внутренним успехом. Опасность повторяется, и её нельзя обмануть поверхностной уверенностью. Сохраняйте прямоту, действуйте по существу и не создавайте новых рисков.">
+<td>29</td><td class="glyph">䷜</td><td><strong>Повторная опасность</strong><br><span class="muted">坎 · kǎn</span></td><td>The Abysmal</td><td>Кань (Вода) / Кань (Вода)</td><td>Обладающему правде следует действовать с внутренним успехом.</td><td>Опасность повторяется, и её нельзя обмануть поверхностной уверенностью. Сохраняйте прямоту, действуйте по существу и не создавайте новых рисков.</td></tr>
+<tr data-search="Сцепление The Clinging 离 lí Благоприятна стойкость; развитие; для коровы — благоприятно. Ясность освещает, но свет нуждается в топливе. Успех зависит от опоры на надёжные связи, знание и меру.">
+<td>30</td><td class="glyph">䷝</td><td><strong>Сцепление</strong><br><span class="muted">离 · lí</span></td><td>The Clinging</td><td>Ли (Сцепление) / Ли (Сцепление)</td><td>Благоприятна стойкость; развитие; для коровы — благоприятно.</td><td>Ясность освещает, но свет нуждается в топливе. Успех зависит от опоры на надёжные связи, знание и меру.</td></tr>
+<tr data-search="Взаимодействие Influence 咸 xián Развитие; благоприятна стойкость; благоприятно брать жену. Взаимное притяжение открывает возможность союза. Оно становится прочным, когда отклик взаимен, а не является односторонним желанием.">
+<td>31</td><td class="glyph">䷞</td><td><strong>Взаимодействие</strong><br><span class="muted">咸 · xián</span></td><td>Influence</td><td>Гэнь (Гора) / Дуй (Радость)</td><td>Развитие; благоприятна стойкость; благоприятно брать жену.</td><td>Взаимное притяжение открывает возможность союза. Оно становится прочным, когда отклик взаимен, а не является односторонним желанием.</td></tr>
+<tr data-search="Постоянство Duration 恒 héng Развитие; нет хулы; благоприятна стойкость. Долгий результат создаётся повторением правильного действия. Постоянство — не неподвижность, а устойчивость направления при меняющихся обстоятельствах.">
+<td>32</td><td class="glyph">䷟</td><td><strong>Постоянство</strong><br><span class="muted">恒 · héng</span></td><td>Duration</td><td>Сунь (Ветер) / Чжэнь (Гром)</td><td>Развитие; нет хулы; благоприятна стойкость.</td><td>Долгий результат создаётся повторением правильного действия. Постоянство — не неподвижность, а устойчивость направления при меняющихся обстоятельствах.</td></tr>
+<tr data-search="Отступление Retreat 遯 dùn Развитие; малому человеку благоприятна стойкость. Отступление — не поражение, а сохранение позиции. Уходите вовремя, не растрачивая силы в заведомо проигрышном столкновении.">
+<td>33</td><td class="glyph">䷠</td><td><strong>Отступление</strong><br><span class="muted">遯 · dùn</span></td><td>Retreat</td><td>Гэнь (Гора) / Цянь (Творчество)</td><td>Развитие; малому человеку благоприятна стойкость.</td><td>Отступление — не поражение, а сохранение позиции. Уходите вовремя, не растрачивая силы в заведомо проигрышном столкновении.</td></tr>
+<tr data-search="Великая мощь Great Power 大壮 dà zhuàng Благоприятна стойкость. Сила велика, но именно поэтому опасна без меры. Действуйте уверенно, однако не превращайте преимущество в насилие.">
+<td>34</td><td class="glyph">䷡</td><td><strong>Великая мощь</strong><br><span class="muted">大壮 · dà zhuàng</span></td><td>Great Power</td><td>Цянь (Творчество) / Чжэнь (Гром)</td><td>Благоприятна стойкость.</td><td>Сила велика, но именно поэтому опасна без меры. Действуйте уверенно, однако не превращайте преимущество в насилие.</td></tr>
+<tr data-search="Подъём Progress 晋 jìn Великому человеку благоприятно довериться; развитие. Продвижение становится устойчивым, когда оно замечено и поддержано. Ясно обозначайте результат, но не торопите признание.">
+<td>35</td><td class="glyph">䷢</td><td><strong>Подъём</strong><br><span class="muted">晋 · jìn</span></td><td>Progress</td><td>Кунь (Земля) / Ли (Сцепление)</td><td>Великому человеку благоприятно довериться; развитие.</td><td>Продвижение становится устойчивым, когда оно замечено и поддержано. Ясно обозначайте результат, но не торопите признание.</td></tr>
+<tr data-search="Поражение света Darkening of the Light 明夷 míng yí Благоприятна стойкость в затруднении. Свет скрыт, но не уничтожен. В неблагоприятных условиях важнее сохранить суть и не раскрывать себя без необходимости.">
+<td>36</td><td class="glyph">䷣</td><td><strong>Поражение света</strong><br><span class="muted">明夷 · míng yí</span></td><td>Darkening of the Light</td><td>Ли (Сцепление) / Кунь (Земля)</td><td>Благоприятна стойкость в затруднении.</td><td>Свет скрыт, но не уничтожен. В неблагоприятных условиях важнее сохранить суть и не раскрывать себя без необходимости.</td></tr>
+<tr data-search="Домашние The Family 家人 jiā rén Благоприятна стойкость женщины. Порядок начинается с ясных ролей и взаимной ответственности. Влияние строится изнутри: сначала упорядочивается близкое, затем — внешнее.">
+<td>37</td><td class="glyph">䷤</td><td><strong>Домашние</strong><br><span class="muted">家人 · jiā rén</span></td><td>The Family</td><td>Ли (Сцепление) / Сунь (Ветер)</td><td>Благоприятна стойкость женщины.</td><td>Порядок начинается с ясных ролей и взаимной ответственности. Влияние строится изнутри: сначала упорядочивается близкое, затем — внешнее.</td></tr>
+<tr data-search="Разлад Opposition 睽 kuí Малые дела возможны. Различия не обязательно делают сотрудничество невозможным. В малом можно найти общую основу, но не стоит требовать полного совпадения.">
+<td>38</td><td class="glyph">䷥</td><td><strong>Разлад</strong><br><span class="muted">睽 · kuí</span></td><td>Opposition</td><td>Дуй (Радость) / Ли (Сцепление)</td><td>Малые дела возможны.</td><td>Различия не обязательно делают сотрудничество невозможным. В малом можно найти общую основу, но не стоит требовать полного совпадения.</td></tr>
+<tr data-search="Препятствие Obstruction 蹇 jiǎn Благоприятно на юго-запад; не благоприятно на северо-восток. Путь затруднён, и прямое продвижение невыгодно. Ищите обходной путь, надёжного помощника и более подходящее направление.">
+<td>39</td><td class="glyph">䷦</td><td><strong>Препятствие</strong><br><span class="muted">蹇 · jiǎn</span></td><td>Obstruction</td><td>Гэнь (Гора) / Кань (Вода)</td><td>Благоприятно на юго-запад; не благоприятно на северо-восток.</td><td>Путь затруднён, и прямое продвижение невыгодно. Ищите обходной путь, надёжного помощника и более подходящее направление.</td></tr>
+<tr data-search="Разрешение Deliverance 解 jiě Благоприятно на юго-запад. Напряжение начинает разрешаться. Не закрепляйте старый конфликт: после снятия препятствия важно быстро вернуться к нормальному порядку.">
+<td>40</td><td class="glyph">䷧</td><td><strong>Разрешение</strong><br><span class="muted">解 · jiě</span></td><td>Deliverance</td><td>Кань (Вода) / Чжэнь (Гром)</td><td>Благоприятно на юго-запад.</td><td>Напряжение начинает разрешаться. Не закрепляйте старый конфликт: после снятия препятствия важно быстро вернуться к нормальному порядку.</td></tr>
+<tr data-search="Убыль Decrease 损 sǔn Благоприятно иметь куда выступить; развитие. Сокращение может быть созидательным, если оно освобождает от лишнего. Уступка и ограничение сейчас служат большему результату.">
+<td>41</td><td class="glyph">䷨</td><td><strong>Убыль</strong><br><span class="muted">损 · sǔn</span></td><td>Decrease</td><td>Дуй (Радость) / Гэнь (Гора)</td><td>Благоприятно иметь куда выступить; развитие.</td><td>Сокращение может быть созидательным, если оно освобождает от лишнего. Уступка и ограничение сейчас служат большему результату.</td></tr>
+<tr data-search="Прибыль Increase 益 yì Благоприятно иметь куда выступить; благоприятен переход через великую реку. Ресурсы прирастают, и их стоит направить в движение. Щедрость и поддержка других усиливают общее развитие.">
+<td>42</td><td class="glyph">䷩</td><td><strong>Прибыль</strong><br><span class="muted">益 · yì</span></td><td>Increase</td><td>Чжэнь (Гром) / Сунь (Ветер)</td><td>Благоприятно иметь куда выступить; благоприятен переход через великую реку.</td><td>Ресурсы прирастают, и их стоит направить в движение. Щедрость и поддержка других усиливают общее развитие.</td></tr>
+<tr data-search="Выход Breakthrough 夬 guài Благоприятна решимость. Препятствие требует ясного и решительного устранения. Но решимость не должна становиться жестокостью: объясните причину и сохраните порядок.">
+<td>43</td><td class="glyph">䷪</td><td><strong>Выход</strong><br><span class="muted">夬 · guài</span></td><td>Breakthrough</td><td>Цянь (Творчество) / Дуй (Радость)</td><td>Благоприятна решимость.</td><td>Препятствие требует ясного и решительного устранения. Но решимость не должна становиться жестокостью: объясните причину и сохраните порядок.</td></tr>
+<tr data-search="Встреча Coming to Meet 姤 gòu Велика встреча; не благоприятно брать жену. Неожиданная сила входит в ситуацию. Не отвергайте её автоматически, но не позволяйте случайному влиянию определить направление.">
+<td>44</td><td class="glyph">䷫</td><td><strong>Встреча</strong><br><span class="muted">姤 · gòu</span></td><td>Coming to Meet</td><td>Сунь (Ветер) / Цянь (Творчество)</td><td>Велика встреча; не благоприятно брать жену.</td><td>Неожиданная сила входит в ситуацию. Не отвергайте её автоматически, но не позволяйте случайному влиянию определить направление.</td></tr>
+<tr data-search="Собрание Gathering Together 萃 cuì Развитие; благоприятно явиться к великому человеку. Люди собираются вокруг ясного центра. Объединение даёт силу, если оно основано на доверии, а не только на выгоде.">
+<td>45</td><td class="glyph">䷬</td><td><strong>Собрание</strong><br><span class="muted">萃 · cuì</span></td><td>Gathering Together</td><td>Кунь (Земля) / Дуй (Радость)</td><td>Развитие; благоприятно явиться к великому человеку.</td><td>Люди собираются вокруг ясного центра. Объединение даёт силу, если оно основано на доверии, а не только на выгоде.</td></tr>
+<tr data-search="Восхождение Pushing Upward 升 shēng Изначальное развитие; благоприятна встреча с великим человеком. Рост идёт постепенно и опирается на накопленное. Поднимайтесь по ясным ступеням, а не пытайтесь перепрыгнуть необходимый этап.">
+<td>46</td><td class="glyph">䷭</td><td><strong>Восхождение</strong><br><span class="muted">升 · shēng</span></td><td>Pushing Upward</td><td>Сунь (Ветер) / Кунь (Земля)</td><td>Изначальное развитие; благоприятна встреча с великим человеком.</td><td>Рост идёт постепенно и опирается на накопленное. Поднимайтесь по ясным ступеням, а не пытайтесь перепрыгнуть необходимый этап.</td></tr>
+<tr data-search="Истощение Oppression 困 kùn Развитие; для великого человека благоприятна стойкость. Ограничение обнажает подлинную опору человека. Не добивайтесь внешнего успеха любой ценой: сохраните достоинство и выдержку.">
+<td>47</td><td class="glyph">䷮</td><td><strong>Истощение</strong><br><span class="muted">困 · kùn</span></td><td>Oppression</td><td>Кань (Вода) / Дуй (Радость)</td><td>Развитие; для великого человека благоприятна стойкость.</td><td>Ограничение обнажает подлинную опору человека. Не добивайтесь внешнего успеха любой ценой: сохраните достоинство и выдержку.</td></tr>
+<tr data-search="Колодец The Well 井 jǐng Можно менять город, нельзя менять колодец. Надёжный источник не зависит от внешней суеты. Сохраняйте и обновляйте основу, из которой вы и другие можете черпать силу.">
+<td>48</td><td class="glyph">䷯</td><td><strong>Колодец</strong><br><span class="muted">井 · jǐng</span></td><td>The Well</td><td>Кань (Вода) / Сунь (Ветер)</td><td>Можно менять город, нельзя менять колодец.</td><td>Надёжный источник не зависит от внешней суеты. Сохраняйте и обновляйте основу, из которой вы и другие можете черпать силу.</td></tr>
+<tr data-search="Потенция Revolution 革 gé В день завершения — вера; развитие; благоприятна стойкость; хулы не будет. Существующий порядок исчерпал себя. Преобразование оправдано, когда оно подготовлено, понятно людям и ведёт к более справедливому устройству.">
+<td>49</td><td class="glyph">䷰</td><td><strong>Потенция</strong><br><span class="muted">革 · gé</span></td><td>Revolution</td><td>Ли (Сцепление) / Дуй (Радость)</td><td>В день завершения — вера; развитие; благоприятна стойкость; хулы не будет.</td><td>Существующий порядок исчерпал себя. Преобразование оправдано, когда оно подготовлено, понятно людям и ведёт к более справедливому устройству.</td></tr>
+<tr data-search="Жертвенник The Caldron 鼎 dǐng Изначальное развитие; благоприятно. Сырьё превращается в нечто пригодное для общего пользования. Создайте условия, в которых разрозненные элементы станут целостной силой.">
+<td>50</td><td class="glyph">䷱</td><td><strong>Жертвенник</strong><br><span class="muted">鼎 · dǐng</span></td><td>The Caldron</td><td>Сунь (Ветер) / Ли (Сцепление)</td><td>Изначальное развитие; благоприятно.</td><td>Сырьё превращается в нечто пригодное для общего пользования. Создайте условия, в которых разрозненные элементы станут целостной силой.</td></tr>
+<tr data-search="Молния The Arousing 震 zhèn Развитие; молния приходит без суеты. Внезапное событие мобилизует. Не паникуйте и не цепенейте: сохраните центр, извлеките урок и действуйте после первой реакции.">
+<td>51</td><td class="glyph">䷲</td><td><strong>Молния</strong><br><span class="muted">震 · zhèn</span></td><td>The Arousing</td><td>Чжэнь (Гром) / Чжэнь (Гром)</td><td>Развитие; молния приходит без суеты.</td><td>Внезапное событие мобилизует. Не паникуйте и не цепенейте: сохраните центр, извлеките урок и действуйте после первой реакции.</td></tr>
+<tr data-search="Сосредоточенность Keeping Still 艮 gèn Не следует выступать; благоприятно остановиться. Есть момент, когда действие только усиливает путаницу. Остановитесь в правильном месте: граница сама становится формой ясности.">
+<td>52</td><td class="glyph">䷳</td><td><strong>Сосредоточенность</strong><br><span class="muted">艮 · gèn</span></td><td>Keeping Still</td><td>Гэнь (Гора) / Гэнь (Гора)</td><td>Не следует выступать; благоприятно остановиться.</td><td>Есть момент, когда действие только усиливает путаницу. Остановитесь в правильном месте: граница сама становится формой ясности.</td></tr>
+<tr data-search="Течение Development 渐 jiàn Благоприятна стойкость; благоприятна невесте. Развитие требует порядка и постепенности. Не пропускайте этапы: прочный результат вырастает из последовательных шагов.">
+<td>53</td><td class="glyph">䷴</td><td><strong>Течение</strong><br><span class="muted">渐 · jiàn</span></td><td>Development</td><td>Гэнь (Гора) / Сунь (Ветер)</td><td>Благоприятна стойкость; благоприятна невесте.</td><td>Развитие требует порядка и постепенности. Не пропускайте этапы: прочный результат вырастает из последовательных шагов.</td></tr>
+<tr data-search="Выходящая дева The Marrying Maiden 归妹 guī mèi Для того, кто выступает, — несчастье; ничего не благоприятно. Ситуация требует занять верное место в заданной структуре. Попытка действовать из ложной позиции ведёт к осложнениям.">
+<td>54</td><td class="glyph">䷵</td><td><strong>Выходящая дева</strong><br><span class="muted">归妹 · guī mèi</span></td><td>The Marrying Maiden</td><td>Дуй (Радость) / Чжэнь (Гром)</td><td>Для того, кто выступает, — несчастье; ничего не благоприятно.</td><td>Ситуация требует занять верное место в заданной структуре. Попытка действовать из ложной позиции ведёт к осложнениям.</td></tr>
+<tr data-search="Изобилие Abundance 丰 fēng Развитие; благоприятно быть правителем. Пик полноты и ясности достигнут. Пользуйтесь моментом решительно, но помните: за расцветом неизбежно следует перемена.">
+<td>55</td><td class="glyph">䷶</td><td><strong>Изобилие</strong><br><span class="muted">丰 · fēng</span></td><td>Abundance</td><td>Ли (Сцепление) / Чжэнь (Гром)</td><td>Развитие; благоприятно быть правителем.</td><td>Пик полноты и ясности достигнут. Пользуйтесь моментом решительно, но помните: за расцветом неизбежно следует перемена.</td></tr>
+<tr data-search="Странствие The Wanderer 旅 lǚ Малое развитие; странствующему человеку благоприятна стойкость. Вы вне привычной опоры. Не стремитесь немедленно утвердиться: адаптируйтесь, соблюдайте меру и не создавайте лишних обязательств.">
+<td>56</td><td class="glyph">䷷</td><td><strong>Странствие</strong><br><span class="muted">旅 · lǚ</span></td><td>The Wanderer</td><td>Гэнь (Гора) / Ли (Сцепление)</td><td>Малое развитие; странствующему человеку благоприятна стойкость.</td><td>Вы вне привычной опоры. Не стремитесь немедленно утвердиться: адаптируйтесь, соблюдайте меру и не создавайте лишних обязательств.</td></tr>
+<tr data-search="Проникновение The Gentle 巽 xùn Малое развитие; благоприятно иметь куда выступить; благоприятно явиться к великому человеку. Мягкое, повторяющееся воздействие проникает там, где давление встречает сопротивление. Выбирайте точность и постепенность.">
+<td>57</td><td class="glyph">䷸</td><td><strong>Проникновение</strong><br><span class="muted">巽 · xùn</span></td><td>The Gentle</td><td>Сунь (Ветер) / Сунь (Ветер)</td><td>Малое развитие; благоприятно иметь куда выступить; благоприятно явиться к великому человеку.</td><td>Мягкое, повторяющееся воздействие проникает там, где давление встречает сопротивление. Выбирайте точность и постепенность.</td></tr>
+<tr data-search="Радость The Joyous 兑 duì Развитие; благоприятна стойкость. Открытый обмен и ясная речь создают доверие. Радость становится силой, когда она не подменяет дело пустым удовольствием.">
+<td>58</td><td class="glyph">䷹</td><td><strong>Радость</strong><br><span class="muted">兑 · duì</span></td><td>The Joyous</td><td>Дуй (Радость) / Дуй (Радость)</td><td>Развитие; благоприятна стойкость.</td><td>Открытый обмен и ясная речь создают доверие. Радость становится силой, когда она не подменяет дело пустым удовольствием.</td></tr>
+<tr data-search="Раздробление Dispersion 涣 huàn Развитие; благоприятно переходить великую реку. Разобщённость рассеивается, если найти общий образ и общую задачу. После разрыва важно заново собрать людей вокруг смысла.">
+<td>59</td><td class="glyph">䷺</td><td><strong>Раздробление</strong><br><span class="muted">涣 · huàn</span></td><td>Dispersion</td><td>Кань (Вода) / Сунь (Ветер)</td><td>Развитие; благоприятно переходить великую реку.</td><td>Разобщённость рассеивается, если найти общий образ и общую задачу. После разрыва важно заново собрать людей вокруг смысла.</td></tr>
+<tr data-search="Ограничение Limitation 节 jié Развитие; не следует быть стойким в ограничении. Мера не сковывает, а делает возможным длительное движение. Установите границы до того, как избыток разрушит результат.">
+<td>60</td><td class="glyph">䷻</td><td><strong>Ограничение</strong><br><span class="muted">节 · jié</span></td><td>Limitation</td><td>Дуй (Радость) / Кань (Вода)</td><td>Развитие; не следует быть стойким в ограничении.</td><td>Мера не сковывает, а делает возможным длительное движение. Установите границы до того, как избыток разрушит результат.</td></tr>
+<tr data-search="Внутренняя правда Inner Truth 中孚 zhōng fú Благоприятен переход через большую реку; благоприятна стойкость. Искренность создаёт связь там, где формальные аргументы бессильны. Внутренняя согласованность слова и действия — основа доверия.">
+<td>61</td><td class="glyph">䷼</td><td><strong>Внутренняя правда</strong><br><span class="muted">中孚 · zhōng fú</span></td><td>Inner Truth</td><td>Дуй (Радость) / Сунь (Ветер)</td><td>Благоприятен переход через большую реку; благоприятна стойкость.</td><td>Искренность создаёт связь там, где формальные аргументы бессильны. Внутренняя согласованность слова и действия — основа доверия.</td></tr>
+<tr data-search="Малое превышение Small Preponderance 小过 xiǎo guò Развитие; благоприятна стойкость; малые дела возможны. Масштаб ситуации невелик, и большие жесты будут неуместны. Действуйте аккуратно, уделяя внимание деталям и реальным возможностям.">
+<td>62</td><td class="glyph">䷽</td><td><strong>Малое превышение</strong><br><span class="muted">小过 · xiǎo guò</span></td><td>Small Preponderance</td><td>Гэнь (Гора) / Чжэнь (Гром)</td><td>Развитие; благоприятна стойкость; малые дела возможны.</td><td>Масштаб ситуации невелик, и большие жесты будут неуместны. Действуйте аккуратно, уделяя внимание деталям и реальным возможностям.</td></tr>
+<tr data-search="Уже конец After Completion 既济 jì jì Развитие в малом; благоприятна стойкость; в конце — расстройство. Дело завершено, но успех создаёт риск самоуспокоенности. Закрепите результат и продолжайте следить за деталями.">
+<td>63</td><td class="glyph">䷾</td><td><strong>Уже конец</strong><br><span class="muted">既济 · jì jì</span></td><td>After Completion</td><td>Ли (Сцепление) / Кань (Вода)</td><td>Развитие в малом; благоприятна стойкость; в конце — расстройство.</td><td>Дело завершено, но успех создаёт риск самоуспокоенности. Закрепите результат и продолжайте следить за деталями.</td></tr>
+<tr data-search="Ещё не конец Before Completion 未济 wèi jì Развитие; для молодого лиса близок успех. Финал близок, но ещё не достигнут. Последний этап требует особой точности: не путайте почти завершённое дело с завершённым.">
+<td>64</td><td class="glyph">䷿</td><td><strong>Ещё не конец</strong><br><span class="muted">未济 · wèi jì</span></td><td>Before Completion</td><td>Кань (Вода) / Ли (Сцепление)</td><td>Развитие; для молодого лиса близок успех.</td><td>Финал близок, но ещё не достигнут. Последний этап требует особой точности: не путайте почти завершённое дело с завершённым.</td></tr></tbody></table></div></section>
+<div id="detailHost"><div class="detail" id="d1">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷀</span><div><h2>Творчество</h2><p class="sub2">乾 · qián · The Creative</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 111111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великая действенность благоприятствует стойкости.</p>
+<p class="logic"><strong>Логика смысла</strong>: Гексаграмма изображает чистую созидательную силу: небо непрерывно движется и потому порождает всё сущее. Сильному человеку следует действовать инициативно, но последовательно — не захватывая власть ради себя, а задавая направление, которому другие могут доверять. Успех здесь основан не на давлении, а на выдержке: творческий импульс сохраняет ценность лишь при внутренней дисциплине.</p></div>
+<div class="detail" id="d2">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷁</span><div><h2>Исполнение</h2><p class="sub2">坤 · kūn · The Receptive</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Исполнение) · <strong>Верхняя триграмма</strong>: Кунь (Исполнение) · <strong>Двоичный код</strong>: 000000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость кобылицы.</p>
+<p class="logic"><strong>Логика смысла</strong>: Земля принимает, несёт и питает всё, не соперничая с небом. Сила этой гексаграммы — не в наступлении, а в умении поддерживать, завершать и давать развиться тому, что уже начато. Гибкость здесь не слабость: уступчивость становится могуществом, когда она соединена с ясной внутренней позицией.</p></div>
+<div class="detail" id="d3">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷂</span><div><h2>Начальная трудность</h2><p class="sub2">屯 · zhūn · Difficulty at the Beginning</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 100010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятствует оказание помощи; не следует предпринимать поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Начало всегда хаотично: побеги пробиваются через почву, а намерение ещё не обрело формы. Не стоит немедленно расширять действие или требовать быстрого результата; сначала нужно найти опору, собрать силы и определить, кому можно доверить помощь. Трудность здесь — не препятствие к росту, а его необходимое условие.</p></div>
+<div class="detail" id="d4">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷃</span><div><h2>Молодость</h2><p class="sub2">蒙 · méng · Youthful Folly</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 010001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Юному безумцу благоприятствует, если он сам обращается за наставлением.</p>
+<p class="logic"><strong>Логика смысла</strong>: Незнание не является недостатком, пока человек способен задавать вопросы и принимать урок. Наставник не должен вкладывать знание насильно: понимание возникает там, где ученик сам ищет ответ. Эта гексаграмма учит различать невежество, которое можно исправить, и упрямство, которое закрывает путь к обучению.</p></div>
+<div class="detail" id="d5">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷄</span><div><h2>Ожидание</h2><p class="sub2">需 · xū · Waiting</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 111010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Обладающий правдой достигнет величия; благоприятен переход через большую воду.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация ещё не созрела, и преждевременное действие может разрушить то, что могло бы развиться само. Ожидание — не бездействие, а активная подготовка: укрепление позиции, накопление знания, наблюдение за обстоятельствами. Когда момент придёт, двигаться следует уверенно, но без суеты.</p></div>
+<div class="detail" id="d6">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷅</span><div><h2>Тяжба</h2><p class="sub2">讼 · sòng · Conflict</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 010111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна встреча с великим человеком; не следует переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Столкновение интересов обнажает границу между тем, что можно доказать, и тем, что хочется навязать. Победа в споре нередко оказывается дороже примирения: она закрепляет разрыв и истощает обе стороны. Разумнее искать посредника, фиксировать справедливые условия и не превращать частное разногласие в затяжную борьбу.</p></div>
+<div class="detail" id="d7">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷆</span><div><h2>Войско</h2><p class="sub2">師 · shī · The Army</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 010000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: От сильного человека зависит успех; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Любое масштабное дело требует не хаотичного энтузиазма, а порядка: ясной цели, распределения ролей и ответственного руководства. Сила группы возникает тогда, когда дисциплина не подавляет людей, а позволяет им действовать согласованно. Законность цели здесь важнее самой мощи: войско без правого основания разрушает то, что должно защищать.</p></div>
+<div class="detail" id="d8">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷇</span><div><h2>Приближение</h2><p class="sub2">比 · bǐ · Holding Together</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 000010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно изыскать помощь и вновь укрепить стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сплочённость не создаётся приказом: люди объединяются вокруг того, кто способен дать ясность и безопасность. Взаимная поддержка сильнее формальной иерархии, но требует взаимности — нельзя только требовать верности, не предлагая её. Эта гексаграмма о союзе, в котором каждый сохраняет свою роль, но действует ради общего основания.</p></div>
+<div class="detail" id="d9">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷈</span><div><h2>Малое накопление</h2><p class="sub2">小畜 · xiǎo chù · Small Taming</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 111011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен малый успех; великое движение ещё неуместно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сила уже есть, но её пока недостаточно для большого прорыва. Мягкое, постепенное сдерживание позволяет накопить ресурс и не растратить его на преждевременный рывок. Малые точные шаги здесь ценнее эффектного начала: они формируют привычку, доверие и устойчивую базу для будущего масштаба.</p></div>
+<div class="detail" id="d10">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷉</span><div><h2>Поступь</h2><p class="sub2">履 · lǚ · Treading</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 110111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Наступать на хвост тигра: тот не укусит человека; будет успех.</p>
+<p class="logic"><strong>Логика смысла</strong>: Даже в опасной среде можно двигаться вперёд, если поведение точно и уважительно. Риск не отменяется смелостью — он преобразуется правильной формой действия. Эта гексаграмма учит различать дерзость и достоинство: уверенность допустима лишь тогда, когда она не нарушает границ других.</p></div>
+<div class="detail" id="d11">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷊</span><div><h2>Расцвет</h2><p class="sub2">泰 · tài · Peace</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 111000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое уходит, великое приходит; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Когда высокое и низкое начинают взаимодействовать, энергия свободно циркулирует: идеи доходят до исполнения, а люди — до взаимопонимания. Это период роста, но не повод расслабиться: гармония держится на внимании к связям и готовности замечать ранние признаки разлада. Успех устойчив лишь у того, кто не принимает его как постоянную данность.</p></div>
+<div class="detail" id="d12">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷋</span><div><h2>Упадок</h2><p class="sub2">否 · pǐ · Standstill</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 000111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великое уходит, малое приходит.</p>
+<p class="logic"><strong>Логика смысла</strong>: Связь между частями системы нарушена: наверху не слышат низ, а низ не доверяет верху. В такой ситуации форсирование лишь углубляет разрыв; важнее сохранить ресурсы, не участвовать в пустой активности и ждать изменения условий. Упадок учит терпению без капитуляции: нужно удерживать направление, даже когда результат временно недостижим.</p></div>
+<div class="detail" id="d13">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷌</span><div><h2>Единомышленники</h2><p class="sub2">同人 · tóng rén · Fellowship</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 101111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен переход через большую реку; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Общая цель способна объединить разных людей, но лишь если она сформулирована ясно и честно. Сотрудничество разрушается, когда под видом общего дела скрываются частные интересы. Эта гексаграмма о сообществе, в котором различие позиций не мешает согласию относительно направления.</p></div>
+<div class="detail" id="d14">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷍</span><div><h2>Великое обладание</h2><p class="sub2">大有 · dà yǒu · Great Possession</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 111101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Изобилие — не просто накопление ресурсов, а способность ими распоряжаться. Чем больше влияния и возможностей, тем выше ответственность перед теми, кто зависит от решения. Эта гексаграмма учит видеть в успехе не личную победу, а расширение поля действия и обязательств.</p></div>
+<div class="detail" id="d15">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷎</span><div><h2>Смирение</h2><p class="sub2">谦 · qiān · Modesty</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 001000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно; смиренному человеку удастся завершить дело.</p>
+<p class="logic"><strong>Логика смысла</strong>: Скромность не означает умаления себя: это точное соответствие между реальным вкладом и его внешним выражением. Человек, не нуждающийся постоянно подчёркивать превосходство, сохраняет доверие и гибкость. Умеренность делает позицию прочной именно потому, что не провоцирует сопротивления и не отрывает человека от реальности.</p></div>
+<div class="detail" id="d16">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷏</span><div><h2>Волнение</h2><p class="sub2">豫 · yù · Enthusiasm</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 000100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно назначать помощников и выступать в поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Воодушевление способно сдвинуть с места целую группу, но лишь при наличии структуры. Вдохновение без организации быстро рассеивается, а организация без воодушевления превращается в формальность. Сильный лидер не давит, а создаёт образ будущего, в котором другие видят смысл собственного участия.</p></div>
+<div class="detail" id="d17">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷐</span><div><h2>Последование</h2><p class="sub2">隨 · suí · Following</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 100110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна стойкость; нет хулы.</p>
+<p class="logic"><strong>Логика смысла</strong>: Умение следовать — не отказ от собственной воли, а способность верно выбирать, чему и кому доверять. Адаптация к обстоятельствам становится силой, когда она не превращается в беспринципность. Эта гексаграмма учит различать гибкость и зависимость: первое расширяет возможности, второе их уничтожает.</p></div>
+<div class="detail" id="d18">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷑</span><div><h2>Порча</h2><p class="sub2">蛊 · gǔ · Work on the Decayed</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 011001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно переходить великую воду; до начала — три дня, после начала — три дня.</p>
+<p class="logic"><strong>Логика смысла</strong>: Застарелая проблема редко исчезает от одного резкого решения: она вросла в привычки, отношения и порядок вещей. Прежде чем менять, нужно понять причину; после изменения — закрепить новый уклад. Эта гексаграмма о терпеливой работе с разложением: не разрушить всё сразу, а последовательно восстановить живое.</p></div>
+<div class="detail" id="d19">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷒</span><div><h2>Посещение</h2><p class="sub2">临 · lín · Approach</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 110000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно; к восьмой луне наступит несчастье.</p>
+<p class="logic"><strong>Логика смысла</strong>: Приближение к людям и делам открывает окно возможностей, но оно ограничено во времени. Внимательное присутствие и готовность действовать сейчас важнее стратегических планов на неопределённое будущее. Успех здесь требует не только использования момента, но и понимания его границы.</p></div>
+<div class="detail" id="d20">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷓</span><div><h2>Созерцание</h2><p class="sub2">观 · guān · Contemplation</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 000011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Умывшись, доверьтесь себе; юный безумец не в убытке.</p>
+<p class="logic"><strong>Логика смысла</strong>: Понимание начинается с дистанции: чтобы увидеть структуру ситуации, нужно подняться над её суетой. Наблюдение не пассивно — оно формирует суждение и позволяет не путать движение с развитием. Эта гексаграмма учит смотреть шире непосредственного интереса, прежде чем выбирать направление.</p></div>
+<div class="detail" id="d21">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷔</span><div><h2>Стиснутые зубы</h2><p class="sub2">噬嗑 · shì kè · Biting Through</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 100101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно творить суд.</p>
+<p class="logic"><strong>Логика смысла</strong>: Препятствие между людьми нельзя игнорировать: оно гниёт и заражает всё вокруг. Разрешение требует ясности, решимости и справедливой меры — не мести, а восстановления порядка. Эта гексаграмма о необходимости действовать точно там, где мягкость уже стала соучастием в проблеме.</p></div>
+<div class="detail" id="d22">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷕</span><div><h2>Украшение</h2><p class="sub2">贲 · bì · Grace</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 101001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно; благоприятен малый поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: Форма делает содержание различимым, но не заменяет его. Уместное оформление — речи, интерфейса, жеста, ритуала — помогает смыслу быть понятым. Избыток украшения, напротив, скрывает пустоту; эта гексаграмма учит мере между выразительностью и сущностью.</p></div>
+<div class="detail" id="d23">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷖</span><div><h2>Размыв</h2><p class="sub2">剥 · bō · Splitting Apart</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 000001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Неблагоприятно куда-либо выступать.</p>
+<p class="logic"><strong>Логика смысла</strong>: Разрушение устаревшего идёт своей логикой, и сопротивление ему лишь ускоряет потерю. Важно не спасать всё подряд, а различить: что действительно является основой, а что лишь привычной оболочкой. Эта гексаграмма учит сохранять ядро, отпуская то, что уже не держит формы.</p></div>
+<div class="detail" id="d24">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷗</span><div><h2>Возврат</h2><p class="sub2">复 · fù · Return</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 100000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно выступать в поход.</p>
+<p class="logic"><strong>Логика смысла</strong>: После спада появляется первая точка обновления — не как возврат к прежнему, а как восстановление правильного направления. Сила возвращения в его естественности: не нужно форсировать рост, достаточно не мешать ему. Эта гексаграмма о начале нового цикла, которое легко пропустить, если ждать слишком большого знака.</p></div>
+<div class="detail" id="d25">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷘</span><div><h2>Невинность</h2><p class="sub2">无妄 · wú wàng · Innocence</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 100111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Действие наиболее сильно, когда оно не отягощено двойной мыслью и расчётом на эффект. Непредвиденное не обязательно враждебно: иногда оно лишь проверяет, насколько человек способен оставаться собой. Эта гексаграмма учит естественности без наивности — открытости миру при сохранении внутренней опоры.</p></div>
+<div class="detail" id="d26">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷙</span><div><h2>Большое накопление</h2><p class="sub2">大畜 · dà chù · Great Taming</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 111001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Накопленные сила, опыт и ресурсы позволяют действовать масштабно, но именно масштаб требует сдержанности. Величие без меры превращается в самовольство и разрушает то, что должно было укреплять. Эта гексаграмма о способности удерживать большую мощность в правильной форме.</p></div>
+<div class="detail" id="d27">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷚</span><div><h2>Питание</h2><p class="sub2">颐 · yí · Nourishment</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 100001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; следите за тем, чем питаетесь и что говорите.</p>
+<p class="logic"><strong>Логика смысла</strong>: То, чем человек питается телесно и умственно, напрямую формирует его состояние и способность действовать. Слова — тоже форма питания: они либо поддерживают, либо истощают общее поле. Эта гексаграмма учит осознанно выбирать источники силы и не путать наполнение с потреблением.</p></div>
+<div class="detail" id="d28">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷛</span><div><h2>Большое превышение</h2><p class="sub2">大过 · dà guò · Great Preponderance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 011110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация перегружена: обычные меры уже не работают, и требуется нестандартное решение. Однако нестандартность не означает безрассудство — она должна быть точным ответом на реальную нагрузку. Эта гексаграмма о моменте, когда осторожность важнее эффектности.</p></div>
+<div class="detail" id="d29">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷜</span><div><h2>Повторная опасность</h2><p class="sub2">坎 · kǎn · The Abysmal</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 010010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Обладающему правде следует действовать с внутренним успехом.</p>
+<p class="logic"><strong>Логика смысла</strong>: Опасность повторяется, и её нельзя обмануть поверхностной уверенностью. Сохраняйте прямоту, действуйте по существу и не создавайте новых рисков.</p></div>
+<div class="detail" id="d30">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷝</span><div><h2>Сцепление</h2><p class="sub2">离 · lí · The Clinging</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 101101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; развитие; для коровы — благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ясность освещает, но свет нуждается в топливе. Успех зависит от опоры на надёжные связи, знание и меру.</p></div>
+<div class="detail" id="d31">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷞</span><div><h2>Взаимодействие</h2><p class="sub2">咸 · xián · Influence</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 001110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость; благоприятно брать жену.</p>
+<p class="logic"><strong>Логика смысла</strong>: Взаимное притяжение открывает возможность союза. Оно становится прочным, когда отклик взаимен, а не является односторонним желанием.</p></div>
+<div class="detail" id="d32">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷟</span><div><h2>Постоянство</h2><p class="sub2">恒 · héng · Duration</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 011100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; нет хулы; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Долгий результат создаётся повторением правильного действия. Постоянство — не неподвижность, а устойчивость направления при меняющихся обстоятельствах.</p></div>
+<div class="detail" id="d33">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷠</span><div><h2>Отступление</h2><p class="sub2">遯 · dùn · Retreat</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 001111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; малому человеку благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Отступление — не поражение, а сохранение позиции. Уходите вовремя, не растрачивая силы в заведомо проигрышном столкновении.</p></div>
+<div class="detail" id="d34">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷡</span><div><h2>Великая мощь</h2><p class="sub2">大壮 · dà zhuàng · Great Power</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 111100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сила велика, но именно поэтому опасна без меры. Действуйте уверенно, однако не превращайте преимущество в насилие.</p></div>
+<div class="detail" id="d35">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷢</span><div><h2>Подъём</h2><p class="sub2">晋 · jìn · Progress</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 000101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Великому человеку благоприятно довериться; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Продвижение становится устойчивым, когда оно замечено и поддержано. Ясно обозначайте результат, но не торопите признание.</p></div>
+<div class="detail" id="d36">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷣</span><div><h2>Поражение света</h2><p class="sub2">明夷 · míng yí · Darkening of the Light</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 101000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость в затруднении.</p>
+<p class="logic"><strong>Логика смысла</strong>: Свет скрыт, но не уничтожен. В неблагоприятных условиях важнее сохранить суть и не раскрывать себя без необходимости.</p></div>
+<div class="detail" id="d37">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷤</span><div><h2>Домашние</h2><p class="sub2">家人 · jiā rén · The Family</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 101011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость женщины.</p>
+<p class="logic"><strong>Логика смысла</strong>: Порядок начинается с ясных ролей и взаимной ответственности. Влияние строится изнутри: сначала упорядочивается близкое, затем — внешнее.</p></div>
+<div class="detail" id="d38">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷥</span><div><h2>Разлад</h2><p class="sub2">睽 · kuí · Opposition</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 110101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малые дела возможны.</p>
+<p class="logic"><strong>Логика смысла</strong>: Различия не обязательно делают сотрудничество невозможным. В малом можно найти общую основу, но не стоит требовать полного совпадения.</p></div>
+<div class="detail" id="d39">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷦</span><div><h2>Препятствие</h2><p class="sub2">蹇 · jiǎn · Obstruction</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 001010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно на юго-запад; не благоприятно на северо-восток.</p>
+<p class="logic"><strong>Логика смысла</strong>: Путь затруднён, и прямое продвижение невыгодно. Ищите обходной путь, надёжного помощника и более подходящее направление.</p></div>
+<div class="detail" id="d40">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷧</span><div><h2>Разрешение</h2><p class="sub2">解 · jiě · Deliverance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 010100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно на юго-запад.</p>
+<p class="logic"><strong>Логика смысла</strong>: Напряжение начинает разрешаться. Не закрепляйте старый конфликт: после снятия препятствия важно быстро вернуться к нормальному порядку.</p></div>
+<div class="detail" id="d41">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷨</span><div><h2>Убыль</h2><p class="sub2">损 · sǔn · Decrease</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 110001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; развитие.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сокращение может быть созидательным, если оно освобождает от лишнего. Уступка и ограничение сейчас служат большему результату.</p></div>
+<div class="detail" id="d42">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷩</span><div><h2>Прибыль</h2><p class="sub2">益 · yì · Increase</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 100011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятно иметь куда выступить; благоприятен переход через великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ресурсы прирастают, и их стоит направить в движение. Щедрость и поддержка других усиливают общее развитие.</p></div>
+<div class="detail" id="d43">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷪</span><div><h2>Выход</h2><p class="sub2">夬 · guài · Breakthrough</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Цянь (Творчество) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 111110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна решимость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Препятствие требует ясного и решительного устранения. Но решимость не должна становиться жестокостью: объясните причину и сохраните порядок.</p></div>
+<div class="detail" id="d44">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷫</span><div><h2>Встреча</h2><p class="sub2">姤 · gòu · Coming to Meet</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Цянь (Творчество) · <strong>Двоичный код</strong>: 011111</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Велика встреча; не благоприятно брать жену.</p>
+<p class="logic"><strong>Логика смысла</strong>: Неожиданная сила входит в ситуацию. Не отвергайте её автоматически, но не позволяйте случайному влиянию определить направление.</p></div>
+<div class="detail" id="d45">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷬</span><div><h2>Собрание</h2><p class="sub2">萃 · cuì · Gathering Together</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кунь (Земля) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 000110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно явиться к великому человеку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Люди собираются вокруг ясного центра. Объединение даёт силу, если оно основано на доверии, а не только на выгоде.</p></div>
+<div class="detail" id="d46">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷭</span><div><h2>Восхождение</h2><p class="sub2">升 · shēng · Pushing Upward</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Кунь (Земля) · <strong>Двоичный код</strong>: 011000</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятна встреча с великим человеком.</p>
+<p class="logic"><strong>Логика смысла</strong>: Рост идёт постепенно и опирается на накопленное. Поднимайтесь по ясным ступеням, а не пытайтесь перепрыгнуть необходимый этап.</p></div>
+<div class="detail" id="d47">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷮</span><div><h2>Истощение</h2><p class="sub2">困 · kùn · Oppression</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 010110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; для великого человека благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ограничение обнажает подлинную опору человека. Не добивайтесь внешнего успеха любой ценой: сохраните достоинство и выдержку.</p></div>
+<div class="detail" id="d48">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷯</span><div><h2>Колодец</h2><p class="sub2">井 · jǐng · The Well</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 010011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Можно менять город, нельзя менять колодец.</p>
+<p class="logic"><strong>Логика смысла</strong>: Надёжный источник не зависит от внешней суеты. Сохраняйте и обновляйте основу, из которой вы и другие можете черпать силу.</p></div>
+<div class="detail" id="d49">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷰</span><div><h2>Потенция</h2><p class="sub2">革 · gé · Revolution</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 101110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: В день завершения — вера; развитие; благоприятна стойкость; хулы не будет.</p>
+<p class="logic"><strong>Логика смысла</strong>: Существующий порядок исчерпал себя. Преобразование оправдано, когда оно подготовлено, понятно людям и ведёт к более справедливому устройству.</p></div>
+<div class="detail" id="d50">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷱</span><div><h2>Жертвенник</h2><p class="sub2">鼎 · dǐng · The Caldron</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 011101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Изначальное развитие; благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Сырьё превращается в нечто пригодное для общего пользования. Создайте условия, в которых разрозненные элементы станут целостной силой.</p></div>
+<div class="detail" id="d51">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷲</span><div><h2>Молния</h2><p class="sub2">震 · zhèn · The Arousing</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Чжэнь (Гром) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 100100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; молния приходит без суеты.</p>
+<p class="logic"><strong>Логика смысла</strong>: Внезапное событие мобилизует. Не паникуйте и не цепенейте: сохраните центр, извлеките урок и действуйте после первой реакции.</p></div>
+<div class="detail" id="d52">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷳</span><div><h2>Сосредоточенность</h2><p class="sub2">艮 · gèn · Keeping Still</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Гэнь (Гора) · <strong>Двоичный код</strong>: 001001</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Не следует выступать; благоприятно остановиться.</p>
+<p class="logic"><strong>Логика смысла</strong>: Есть момент, когда действие только усиливает путаницу. Остановитесь в правильном месте: граница сама становится формой ясности.</p></div>
+<div class="detail" id="d53">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷴</span><div><h2>Течение</h2><p class="sub2">渐 · jiàn · Development</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 001011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятна стойкость; благоприятна невесте.</p>
+<p class="logic"><strong>Логика смысла</strong>: Развитие требует порядка и постепенности. Не пропускайте этапы: прочный результат вырастает из последовательных шагов.</p></div>
+<div class="detail" id="d54">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷵</span><div><h2>Выходящая дева</h2><p class="sub2">归妹 · guī mèi · The Marrying Maiden</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 110100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Для того, кто выступает, — несчастье; ничего не благоприятно.</p>
+<p class="logic"><strong>Логика смысла</strong>: Ситуация требует занять верное место в заданной структуре. Попытка действовать из ложной позиции ведёт к осложнениям.</p></div>
+<div class="detail" id="d55">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷶</span><div><h2>Изобилие</h2><p class="sub2">丰 · fēng · Abundance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 101100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно быть правителем.</p>
+<p class="logic"><strong>Логика смысла</strong>: Пик полноты и ясности достигнут. Пользуйтесь моментом решительно, но помните: за расцветом неизбежно следует перемена.</p></div>
+<div class="detail" id="d56">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷷</span><div><h2>Странствие</h2><p class="sub2">旅 · lǚ · The Wanderer</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 001101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое развитие; странствующему человеку благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Вы вне привычной опоры. Не стремитесь немедленно утвердиться: адаптируйтесь, соблюдайте меру и не создавайте лишних обязательств.</p></div>
+<div class="detail" id="d57">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷸</span><div><h2>Проникновение</h2><p class="sub2">巽 · xùn · The Gentle</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Сунь (Ветер) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 011011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Малое развитие; благоприятно иметь куда выступить; благоприятно явиться к великому человеку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Мягкое, повторяющееся воздействие проникает там, где давление встречает сопротивление. Выбирайте точность и постепенность.</p></div>
+<div class="detail" id="d58">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷹</span><div><h2>Радость</h2><p class="sub2">兑 · duì · The Joyous</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Дуй (Радость) · <strong>Двоичный код</strong>: 110110</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Открытый обмен и ясная речь создают доверие. Радость становится силой, когда она не подменяет дело пустым удовольствием.</p></div>
+<div class="detail" id="d59">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷺</span><div><h2>Раздробление</h2><p class="sub2">涣 · huàn · Dispersion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 010011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятно переходить великую реку.</p>
+<p class="logic"><strong>Логика смысла</strong>: Разобщённость рассеивается, если найти общий образ и общую задачу. После разрыва важно заново собрать людей вокруг смысла.</p></div>
+<div class="detail" id="d60">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷻</span><div><h2>Ограничение</h2><p class="sub2">节 · jié · Limitation</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 110010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; не следует быть стойким в ограничении.</p>
+<p class="logic"><strong>Логика смысла</strong>: Мера не сковывает, а делает возможным длительное движение. Установите границы до того, как избыток разрушит результат.</p></div>
+<div class="detail" id="d61">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷼</span><div><h2>Внутренняя правда</h2><p class="sub2">中孚 · zhōng fú · Inner Truth</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Дуй (Радость) · <strong>Верхняя триграмма</strong>: Сунь (Ветер) · <strong>Двоичный код</strong>: 110011</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Благоприятен переход через большую реку; благоприятна стойкость.</p>
+<p class="logic"><strong>Логика смысла</strong>: Искренность создаёт связь там, где формальные аргументы бессильны. Внутренняя согласованность слова и действия — основа доверия.</p></div>
+<div class="detail" id="d62">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷽</span><div><h2>Малое превышение</h2><p class="sub2">小过 · xiǎo guò · Small Preponderance</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Гэнь (Гора) · <strong>Верхняя триграмма</strong>: Чжэнь (Гром) · <strong>Двоичный код</strong>: 001100</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; благоприятна стойкость; малые дела возможны.</p>
+<p class="logic"><strong>Логика смысла</strong>: Масштаб ситуации невелик, и большие жесты будут неуместны. Действуйте аккуратно, уделяя внимание деталям и реальным возможностям.</p></div>
+<div class="detail" id="d63">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷾</span><div><h2>Уже конец</h2><p class="sub2">既济 · jì jì · After Completion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Ли (Сцепление) · <strong>Верхняя триграмма</strong>: Кань (Вода) · <strong>Двоичный код</strong>: 101010</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие в малом; благоприятна стойкость; в конце — расстройство.</p>
+<p class="logic"><strong>Логика смысла</strong>: Дело завершено, но успех создаёт риск самоуспокоенности. Закрепите результат и продолжайте следить за деталями.</p></div>
+<div class="detail" id="d64">
+<button class="back" onclick="closeDetail()">← Назад</button>
+<div class="detail-head"><span class="glyph big">䷿</span><div><h2>Ещё не конец</h2><p class="sub2">未济 · wèi jì · Before Completion</p></div></div>
+<p class="meta"><strong>Нижняя триграмма</strong>: Кань (Вода) · <strong>Верхняя триграмма</strong>: Ли (Сцепление) · <strong>Двоичный код</strong>: 010101</p>
+<p class="judgment"><strong>Суть афоризма</strong>: Развитие; для молодого лиса близок успех.</p>
+<p class="logic"><strong>Логика смысла</strong>: Финал близок, но ещё не достигнут. Последний этап требует особой точности: не путайте почти завершённое дело с завершённым.</p></div></div>
+<footer><p><strong>Источники.</strong> Русские названия и общая интерпретативная рамка — Ю. К. Щуцкий, «Китайская классическая “Книга перемен”»; английские названия и смысловые акценты — Alfred Huang, <em>The Complete I Ching</em>. Формулировки даны как краткие смысловые пересказы, а не дословные цитаты.</p></footer>
+</main>
+<script>
+function openDetail(n){
+ document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+ document.querySelectorAll('.detail').forEach(d=>d.classList.remove('open'));
+ document.getElementById('d'+n).classList.add('open');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function closeDetail(){
+ document.querySelectorAll('.detail').forEach(d=>d.classList.remove('open'));
+ document.getElementById('cards').classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('.detail').forEach(d=>d.classList.remove('open'));
+ b.classList.add('active');document.getElementById(b.dataset.view).classList.add('active');
+}));
+</script></body></html>
